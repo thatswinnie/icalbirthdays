@@ -1,12 +1,12 @@
 // !$*UTF8*$!
 {
 	089C1669FE841209C02AAC07 /* Project object */ = {
+		activeArchitecture = i386;
 		activeBuildConfigurationName = Release;
 		activeExecutable = 658A2E03067AB99300421F51 /* Automator */;
 		activeTarget = 65081C2D067A9A0C006247A1 /* iCalBirthdays */;
 		breakpoints = (
 		);
-		breakpointsGroup = 2DAE541C0CCA745E00DD8B87 /* XCBreakpointsBucket */;
 		codeSenseManager = 658A2DD0067AB96600421F51 /* Code sense */;
 		executables = (
 			658A2E03067AB99300421F51 /* Automator */,
@@ -56,52 +56,31 @@
 					PBXFileDataSource_Target_ColumnID,
 				);
 			};
-			PBXPerProjectTemplateStateSaveDate = 214761906;
-			PBXWorkspaceStateSaveDate = 214761906;
-		};
-		perUserProjectItems = {
-			2DEC379E0CCD01D300703CD7 /* PBXTextBookmark */ = 2DEC379E0CCD01D300703CD7 /* PBXTextBookmark */;
-			2DF0A9D50CCD0177000D4D0E /* PBXTextBookmark */ = 2DF0A9D50CCD0177000D4D0E /* PBXTextBookmark */;
+			PBXPerProjectTemplateStateSaveDate = 217094237;
+			PBXWorkspaceStateSaveDate = 217094237;
 		};
 		sourceControlManager = 658A2DCF067AB96600421F51 /* Source Control */;
 		userBuildSettings = {
 		};
 	};
-	2DAE541C0CCA745E00DD8B87 /* XCBreakpointsBucket */ = {
-		isa = XCBreakpointsBucket;
-		name = "Project Breakpoints";
-		objects = (
-		);
-	};
-	2DEC379E0CCD01D300703CD7 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 65E2187306F52A5F00613B9C /* main.applescript */;
-		name = "main.applescript: 113";
-		rLen = 0;
-		rLoc = 4098;
-		rType = 0;
-		vrLen = 1133;
-		vrLoc = 2965;
-	};
-	2DF0A9D50CCD0177000D4D0E /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 65E2187306F52A5F00613B9C /* main.applescript */;
-		name = "main.applescript: 112";
-		rLen = 0;
-		rLoc = 4098;
-		rType = 0;
-		vrLen = 1311;
-		vrLoc = 0;
+	089C167EFE841241C02AAC07 /* English */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {691, 448}}";
+			sepNavSelRange = "{864, 0}";
+			sepNavVisRange = "{44, 1090}";
+			sepNavWindowFrame = "{{390, 53}, {750, 558}}";
+		};
 	};
 	65081C2D067A9A0C006247A1 /* iCalBirthdays */ = {
 		activeExec = 0;
 	};
 	65081C3A067A9A0C006247A1 /* Info.plist */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1094, 1512}}";
-			sepNavSelRange = "{714, 0}";
+			sepNavIntBoundsRect = "{{0, 0}, {950, 1484}}";
+			sepNavSelRange = "{1674, 0}";
+			sepNavVisRange = "{881, 1067}";
 			sepNavVisRect = "{{0, 0}, {1062, 509}}";
-			sepNavWindowFrame = "{{22, 70}, {1101, 638}}";
+			sepNavWindowFrame = "{{12, 115}, {841, 611}}";
 		};
 	};
 	658A2DCF067AB96600421F51 /* Source Control */ = {
@@ -118,7 +97,6 @@
 	};
 	658A2E03067AB99300421F51 /* Automator */ = {
 		isa = PBXExecutable;
-		activeArgIndex = 0;
 		activeArgIndices = (
 			YES,
 		);
@@ -126,6 +104,7 @@
 			"-action \"iCalBirthdays.action\"",
 		);
 		autoAttachOnCrash = 1;
+		breakpointsEnabled = 1;
 		configStateDict = {
 			"PBXLSLaunchAction-1" = {
 				PBXLSLaunchAction = 1;
@@ -163,10 +142,10 @@
 	};
 	65E2187306F52A5F00613B9C /* main.applescript */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1442, 1695}}";
-			sepNavSelRange = "{4098, 0}";
-			sepNavVisRect = "{{0, 1199}, {816, 495}}";
-			sepNavWindowFrame = "{{398, 144}, {861, 624}}";
+			sepNavIntBoundsRect = "{{0, 0}, {1849, 3345}}";
+			sepNavSelRange = "{8172, 0}";
+			sepNavVisRect = "{{0, 2775}, {822, 496}}";
+			sepNavWindowFrame = "{{16, 23}, {861, 624}}";
 		};
 	};
 }
