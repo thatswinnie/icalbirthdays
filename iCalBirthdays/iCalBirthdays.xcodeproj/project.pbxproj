@@ -167,9 +167,11 @@
 		089C1669FE841209C02AAC07 /* Project object */ = {
 			isa = PBXProject;
 			buildConfigurationList = 4E77D00D0895B1C5005CF7E3 /* Build configuration list for PBXProject "iCalBirthdays" */;
+			compatibilityVersion = "Xcode 2.4";
 			hasScannedForEncodings = 1;
 			mainGroup = 089C166AFE841209C02AAC07 /* Automator Action */;
 			projectDirPath = "";
+			projectRoot = "";
 			targets = (
 				65081C2D067A9A0C006247A1 /* iCalBirthdays */,
 			);
