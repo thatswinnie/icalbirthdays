@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>AMAccepts</key>
+	<dict>
+		<key>Container</key>
+		<string>List</string>
+		<key>Optional</key>
+		<false/>
+		<key>Types</key>
+		<array>
+			<string>com.apple.applescript.object</string>
+		</array>
+	</dict>
+	<key>AMApplication</key>
+	<string>iCal</string>
+	<key>AMCanShowSelectedItemsWhenRun</key>
+	<true/>
+	<key>AMCanShowWhenRun</key>
+	<true/>
+	<key>AMCategory</key>
+	<string>iCal</string>
+	<key>AMDefaultParameters</key>
+	<dict>
+		<key>additionalAlert</key>
+		<integer>0</integer>
+		<key>additionalAlert_text</key>
+		<string>buy a present</string>
+		<key>additionalAlert_type</key>
+		<integer>0</integer>
+		<key>alertTime_hour</key>
+		<integer>4</integer>
+		<key>alertTime_minute</key>
+		<integer>0</integer>
+		<key>alertTime_part</key>
+		<integer>1</integer>
+		<key>iCalCalendarName</key>
+		<string>my birthdays</string>
+	</dict>
+	<key>AMDescription</key>
+	<dict>
+		<key>AMDAlert</key>
+		<string>All entries of the calendar will be deleted.</string>
+		<key>AMDResult</key>
+		<string>Exports the birthday calendar to a file and returns the reference to the file.</string>
+		<key>AMDSummary</key>
+		<string>Creates a birthday calendar in iCal from the contacts in Address Book and adds an alarm.</string>
+	</dict>
+	<key>AMIconName</key>
+	<string></string>
+	<key>AMKeywords</key>
+	<array/>
+	<key>AMName</key>
+	<string>iCalBirthdays</string>
+	<key>AMProvides</key>
+	<dict>
+		<key>Container</key>
+		<string>List</string>
+		<key>Types</key>
+		<array>
+			<string>com.apple.applescript.alias-object</string>
+		</array>
+	</dict>
+	<key>AMRequiredResources</key>
+	<array/>
+	<key>AMWarning</key>
+	<dict>
+		<key>Action</key>
+		<string>(* Action name to be suggested to add prior to this action to make the task safer, e.g. com.apple.Automator.CopyFiles, goes here. *)</string>
+		<key>ApplyButton</key>
+		<string>(* Button label for user to add proposed Action, e.g. Add. *)</string>
+		<key>IgnoreButton</key>
+		<string>(* Button label for user not to add proposed Action, e.g. Don't Add. *)</string>
+		<key>Level</key>
+		<integer>0</integer>
+		<key>Message</key>
+		<string>(* Warning message presented to user goes here. *)</string>
+	</dict>
+	<key>CFBundleDevelopmentRegion</key>
+	<string>English</string>
+	<key>CFBundleGetInfoString</key>
+	<string>iCalBirthdays version 1.1, Copyright (c) 2007, thatswinnie.</string>
+	<key>CFBundleIdentifier</key>
+	<string>com.thatswinnie.Automator.iCalBirthdays</string>
+	<key>CFBundleInfoDictionaryVersion</key>
+	<string>6.0</string>
+	<key>CFBundleName</key>
+	<string>iCalBirthdays</string>
+	<key>CFBundlePackageType</key>
+	<string>BNDL</string>
+	<key>CFBundleShortVersionString</key>
+	<string>1.1</string>
+	<key>CFBundleSignature</key>
+	<string>????</string>
+	<key>CFBundleVersion</key>
+	<string>1.1</string>
+	<key>NSPrincipalClass</key>
+	<string>AMAppleScriptAction</string>
+</dict>
+</plist>
