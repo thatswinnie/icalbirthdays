@@ -4,11 +4,28 @@
 --  Created by Winnie on 20.10.07.
 --  Copyright 2007 thatswinnie. All rights reserved.
 
-on getiCalPath(nodesPlist, calendarUID)
+on getiCalPath(nodesPlist, calendarUID, icalSupportFolder, newCal)
+	tell application "Finder"
+		--display dialog newCal
+		set lastPListDate to modification date of file nodesPlist
+		if newCal is true then
+			repeat with y from 1 to 20
+				set nodesPlistDate to modification date of file nodesPlist
+				set iCalFolderDate to modification date of folder icalSupportFolder
+				
+				if nodesPlistDate > iCalFolderDate and nodesPlistDate > lastPListDate then
+					exit repeat
+				else
+					delay 5
+				end if
+			end repeat
+		end if
+	end tell
+	
 	tell application "System Events"
 		set calendarList to property list items of property list item "List" of contents of property list file nodesPlist
 		set myCalendarName to ""
-		repeat with i from 1 to count of calendarList
+		repeat with i from 1 to number of items in calendarList
 			set this_name to value of property list item "Key" of item i of calendarList
 			if (this_name is calendarUID) then
 				set myCalendarName to value of property list item "SourceKey" of item i of calendarList
@@ -91,6 +108,7 @@ on run {input, parameters}
 	set today to date (date string of (current date) & " 12:00:00 AM")
 	set sourceFile to ""
 	set output to ""
+	set newCal to false
 	
 	set alert_time to (alert_time_hour_index + 1) * 60 + alert_time_minute_index * 15 + alert_time_part_index * 720
 	
@@ -131,6 +149,7 @@ on run {input, parameters}
 				
 				-- set calendar name
 				set this_calendar to (the first calendar whose title is the calendar_name)
+				set newCal to true
 			end if
 			
 			set the people_count to the count of birthday_people
@@ -189,7 +208,7 @@ on run {input, parameters}
 		
 		-- is Tiger?
 		if (my_version < "10.5") then
-			set my_calendarPath to my getiCalPath(nodesPlist, my_uid)
+			set my_calendarPath to my getiCalPath(nodesPlist, my_uid, icalSupportFolder & "Sources", newCal)
 			set sourceFile to icalSupportFolder & "Sources:" & my_calendarPath & ".calendar:corestorage.ics"
 			set output to sourceFile as alias
 		else
