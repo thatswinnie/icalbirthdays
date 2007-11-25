@@ -56,12 +56,12 @@
 					PBXFileDataSource_Target_ColumnID,
 				);
 			};
-			PBXPerProjectTemplateStateSaveDate = 217374508;
-			PBXWorkspaceStateSaveDate = 217374508;
+			PBXPerProjectTemplateStateSaveDate = 217720407;
+			PBXWorkspaceStateSaveDate = 217720407;
 		};
 		perUserProjectItems = {
-			2D0D09700CF4DF3C00FEE822 /* PBXTextBookmark */ = 2D0D09700CF4DF3C00FEE822 /* PBXTextBookmark */;
-			2DF1D0860CF4DF2000DC4785 /* PBXTextBookmark */ = 2DF1D0860CF4DF2000DC4785 /* PBXTextBookmark */;
+			2DB8CC530CF895ED00714080 = 2DB8CC530CF895ED00714080 /* PBXTextBookmark */;
+			2DC8A0D30CFA262100D1485B = 2DC8A0D30CFA262100D1485B /* PBXTextBookmark */;
 		};
 		sourceControlManager = 658A2DCF067AB96600421F51 /* Source Control */;
 		userBuildSettings = {
@@ -71,38 +71,38 @@
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {691, 448}}";
 			sepNavSelRange = "{864, 0}";
-			sepNavVisRange = "{44, 1090}";
+			sepNavVisRange = "{0, 1071}";
 			sepNavWindowFrame = "{{390, 53}, {750, 558}}";
 		};
 	};
-	2D0D09700CF4DF3C00FEE822 /* PBXTextBookmark */ = {
+	2DB8CC530CF895ED00714080 /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
 		fRef = 65E2187306F52A5F00613B9C /* main.applescript */;
-		name = "main.applescript: 244";
-		rLen = 0;
-		rLoc = 8764;
+		name = "main.applescript: 1";
+		rLen = 9561;
+		rLoc = 0;
 		rType = 0;
 		vrLen = 1157;
 		vrLoc = 7607;
 	};
-	2DF1D0860CF4DF2000DC4785 /* PBXTextBookmark */ = {
+	2DC8A0D30CFA262100D1485B /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
 		fRef = 65E2187306F52A5F00613B9C /* main.applescript */;
-		name = "main.applescript: 244";
+		name = "main.applescript: 272";
 		rLen = 0;
-		rLoc = 8764;
+		rLoc = 9209;
 		rType = 0;
-		vrLen = 1157;
-		vrLoc = 7607;
+		vrLen = 1017;
+		vrLoc = 8544;
 	};
 	65081C2D067A9A0C006247A1 /* iCalBirthdays */ = {
 		activeExec = 0;
 	};
 	65081C3A067A9A0C006247A1 /* Info.plist */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {950, 1484}}";
-			sepNavSelRange = "{1674, 0}";
-			sepNavVisRange = "{881, 1067}";
+			sepNavIntBoundsRect = "{{0, 0}, {950, 1456}}";
+			sepNavSelRange = "{2504, 0}";
+			sepNavVisRange = "{1796, 1256}";
 			sepNavVisRect = "{{0, 0}, {1062, 509}}";
 			sepNavWindowFrame = "{{12, 115}, {841, 611}}";
 		};
@@ -166,9 +166,9 @@
 	};
 	65E2187306F52A5F00613B9C /* main.applescript */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1849, 3628}}";
-			sepNavSelRange = "{8764, 0}";
-			sepNavVisRect = "{{0, 3132}, {822, 496}}";
+			sepNavIntBoundsRect = "{{0, 0}, {1849, 4247}}";
+			sepNavSelRange = "{9209, 0}";
+			sepNavVisRect = "{{0, 3749}, {822, 496}}";
 			sepNavWindowFrame = "{{343, 89}, {861, 624}}";
 		};
 	};
