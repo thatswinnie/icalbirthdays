@@ -36,61 +36,113 @@ on getiCalPath(nodesPlist, calendarUID, icalSupportFolder, newCal)
 end getiCalPath
 
 -- export the birthday calendar for Leopard
-on exportLeopardCalendar(uCalendarName, uSourceFile)
-	set icsData to ""
+on exportLeopardCalendar(uCalendarName, uSourceWriteFile)
 	try
+		
 		tell application "iCal"
 			activate
-			set this_calendar to (the first calendar whose title is the uCalendarName)
-			set numCalendarItems to count events of this_calendar
-			repeat with n from 1 to numCalendarItems
-				set thisEvent to event n of this_calendar
-				set myEventUID to uid of thisEvent
-				set sourceEventFile to uSourceFile & ":Events:" & myEventUID & ".ics"
+			
+			-- create ics file
+			set fRef to (open for access file uSourceWriteFile with write permission)
+			set eof fRef to 0
+			write "BEGIN:VCALENDAR
+" to fRef
+			write "VERSION:2.0
+
+" to fRef
+			
+			repeat with aEvent in events of calendar uCalendarName
+				set mySummary to summary of aEvent as string
+				set myUID to uid of aEvent as string
+				set mySequence to sequence of aEvent as string
+				set myRecurrence to recurrence of aEvent as string
+				set myURL to url of aEvent as string
+				set myStatus to status of aEvent as string
+				set myCreated to stamp date of aEvent as string
 				
-				-- try
-				repeat with y from 1 to 5
-					try
-						alias sourceEventFile
-					on error
-						delay 3
-					end try
-					exit repeat
-				end repeat
+				-- get the alarm
+				set myAlarm to item 1 of sound alarm of aEvent
+				set myAlarmTriggerInterval to trigger interval of myAlarm
+				set myAlarmSoundName to sound name of myAlarm
+				set myAlarmTime to ""
 				
-				set fileObj to open for access file sourceEventFile
-				set myFileContent to read fileObj using delimiter return
-				set x to count of items in myFileContent
-				set isInICS to false
-				repeat with z from 1 to x
-					if n is 1 and (item z of myFileContent does not contain "END:VCALENDAR") then
-						set icsData to icsData & item z of myFileContent
-					else
-						if isInICS is true then
-							set icsData to icsData & item z of myFileContent
-							if n is not numCalendarItems and item z of myFileContent contains "END:VEVENT" then
-								set isInICS to false
-							end if
-						else
-							if (z + 1) < x or (z + 1) is x then
-								if item (z + 1) of myFileContent contains "BEGIN:VEVENT" then
-									set isInICS to true
-								end if
-							end if
-						end if
-					end if
-				end repeat
-				close access fileObj
+				set myAlertHour to myAlarmTriggerInterval div 60
+				set myAlarmMinute to myAlarmTriggerInterval mod 60
+				if myAlertHour > 0 and myAlarmMinute > 0 then
+					set myAlarmTime to "PT" & myAlertHour & "H" & myAlarmMinute & "M"
+				else if myAlertHour > 0 and myAlarmMinute is 0 then
+					set myAlarmTime to "PT" & myAlertHour & "H"
+				else if myAlertHour is 0 then
+					set myAlarmTime to "P" & myAlarmMinute & "M"
+				end if
+				
+				-- set start date
+				set theDate to start date of aEvent
+				set {year:y, month:m, day:d} to result
+				y * 10000
+				result + m * 100
+				result + d
+				set startDate to result as string
+				
+				-- set end date
+				set theDate to end date of aEvent
+				set {year:y, month:m, day:d} to result
+				y * 10000
+				result + m * 100
+				result + d
+				set endDate to result as string
+				
+				-- write the event
+				write "BEGIN:VEVENT
+" to fRef
+				write "SUMMARY:" & mySummary & "
+" to fRef as «class utf8»
+				write "TRANSP:TRANSPARENT" & "
+" to fRef
+				write "UID:" & myUID & "
+" to fRef
+				write "SEQUENCE:" & mySequence & "
+" to fRef
+				write "DTSTART;VALUE=DATE:" & startDate & "
+" to fRef
+				write "DTEND;VALUE=DATE:" & endDate & "
+" to fRef
+				write "RRULE:" & myRecurrence & "
+" to fRef
+				write "URL:" & myURL & "
+" to fRef
+				write "STATUS:" & myStatus & "
+" to fRef
+				
+				write "BEGIN:VALARM
+" to fRef
+				write "ACTION:AUDIO" & "
+" to fRef
+				write "TRIGGER:" & myAlarmTime & "
+" to fRef
+				write "ATTACH;VALUE=URI:" & myAlarmSoundName & "
+" to fRef
+				write "END:VALARM
+" to fRef
+				
+				write "END:VEVENT
+
+" to fRef
 			end repeat
+			
+			write "END:VCALENDAR" to fRef
+			close access fRef
 		end tell
+		
 		-- display error
 	on error error_message number error_number
 		if the error_number is not -128 then
 			display dialog error_message buttons {"OK"} default button 1
 		end if
 	end try
-	return icsData
 end exportLeopardCalendar
+
+
 
 on run {input, parameters}
 	global these_people, people_IDs
@@ -213,18 +265,8 @@ on run {input, parameters}
 			set output to sourceFile as alias
 		else
 			set sourceEventFile to icalSupportFolder & my_uid & ".calendar"
-			set icsData to my exportLeopardCalendar(calendar_name, sourceEventFile)
 			set sourceWriteFile to (path to documents folder as string) & "birthdays.ics"
-			
-			-- create ics file
-			set writeFileHandler to open for access file sourceWriteFile with write permission
-			try
-				set eof of writeFileHandler to 0
-				write icsData to writeFileHandler
-				close access writeFileHandler
-			on error
-				close access writeFileHandler
-			end try
+			my exportLeopardCalendar(calendar_name, sourceWriteFile)
 			set output to sourceWriteFile as alias
 		end if
 		
