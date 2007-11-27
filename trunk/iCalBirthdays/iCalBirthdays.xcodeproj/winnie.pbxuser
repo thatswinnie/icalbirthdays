@@ -56,12 +56,12 @@
 					PBXFileDataSource_Target_ColumnID,
 				);
 			};
-			PBXPerProjectTemplateStateSaveDate = 217882886;
-			PBXWorkspaceStateSaveDate = 217882886;
+			PBXPerProjectTemplateStateSaveDate = 217892198;
+			PBXWorkspaceStateSaveDate = 217892198;
 		};
 		perUserProjectItems = {
-			2D750D710CFCB44D00F827C9 /* PBXTextBookmark */ = 2D750D710CFCB44D00F827C9 /* PBXTextBookmark */;
-			2D750D880CFCBA4D00F827C9 /* PBXTextBookmark */ = 2D750D880CFCBA4D00F827C9 /* PBXTextBookmark */;
+			2D39DE1F0CFCC56900335749 /* PBXBookmark */ = 2D39DE1F0CFCC56900335749 /* PBXBookmark */;
+			2D39DE250CFCC57F00335749 /* PBXTextBookmark */ = 2D39DE250CFCC57F00335749 /* PBXTextBookmark */;
 		};
 		sourceControlManager = 658A2DCF067AB96600421F51 /* Source Control */;
 		userBuildSettings = {
@@ -75,23 +75,19 @@
 			sepNavWindowFrame = "{{390, 53}, {750, 558}}";
 		};
 	};
-	2D750D710CFCB44D00F827C9 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		comments = "/Volumes/data/programming/Apple/AppleScript/icalbirthdays/iCalBirthdays/main.applescript:265: Expected “then”, etc. but found unknown token. (-2741)";
+	2D39DE1F0CFCC56900335749 /* PBXBookmark */ = {
+		isa = PBXBookmark;
 		fRef = 65E2187306F52A5F00613B9C /* main.applescript */;
-		rLen = 0;
-		rLoc = 265;
-		rType = 1;
 	};
-	2D750D880CFCBA4D00F827C9 /* PBXTextBookmark */ = {
+	2D39DE250CFCC57F00335749 /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
 		fRef = 65E2187306F52A5F00613B9C /* main.applescript */;
-		name = "main.applescript: 267";
+		name = "main.applescript: 317";
 		rLen = 0;
-		rLoc = 8205;
+		rLoc = 9912;
 		rType = 0;
-		vrLen = 1696;
-		vrLoc = 7376;
+		vrLen = 1074;
+		vrLoc = 2937;
 	};
 	65081C2D067A9A0C006247A1 /* iCalBirthdays */ = {
 		activeExec = 0;
@@ -126,7 +122,7 @@
 			"-action \"iCalBirthdays.action\"",
 		);
 		autoAttachOnCrash = 1;
-		breakpointsEnabled = 0;
+		breakpointsEnabled = 1;
 		configStateDict = {
 			"PBXLSLaunchAction-1" = {
 				PBXLSLaunchAction = 1;
@@ -165,8 +161,8 @@
 	65E2187306F52A5F00613B9C /* main.applescript */ = {
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {1417, 4704}}";
-			sepNavSelRange = "{8205, 0}";
-			sepNavVisRect = "{{468, 3735}, {949, 608}}";
+			sepNavSelRange = "{9912, 0}";
+			sepNavVisRect = "{{0, 1512}, {949, 608}}";
 			sepNavWindowFrame = "{{223, 9}, {988, 736}}";
 		};
 	};

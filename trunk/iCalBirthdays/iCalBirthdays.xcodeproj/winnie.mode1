@@ -190,7 +190,7 @@
 			<key>Content</key>
 			<dict>
 				<key>PBXProjectModuleGUID</key>
-				<string>2D47CABB0CF4C2BD0049D693</string>
+				<string>2DCEBB330CFCC2DD005C9156</string>
 				<key>PBXProjectModuleLabel</key>
 				<string>main.applescript</string>
 				<key>PBXSplitModuleInNavigatorKey</key>
@@ -198,16 +198,16 @@
 					<key>Split0</key>
 					<dict>
 						<key>PBXProjectModuleGUID</key>
-						<string>2D47CABC0CF4C2BD0049D693</string>
+						<string>2DCEBB340CFCC2DD005C9156</string>
 						<key>PBXProjectModuleLabel</key>
 						<string>main.applescript</string>
 						<key>_historyCapacity</key>
 						<integer>0</integer>
 						<key>bookmark</key>
-						<string>2D3C0C580CF4D17500F6A166</string>
+						<string>2DCEBB350CFCC2DD005C9156</string>
 						<key>history</key>
 						<array>
-							<string>2D47CABD0CF4C2BD0049D693</string>
+							<string>2DCEBB2E0CFCC2BB005C9156</string>
 						</array>
 					</dict>
 					<key>SplitCount</key>
@@ -219,11 +219,11 @@
 			<key>Geometry</key>
 			<dict>
 				<key>Frame</key>
-				<string>{{0, 20}, {861, 527}}</string>
+				<string>{{0, 20}, {988, 639}}</string>
 				<key>PBXModuleWindowStatusBarHidden2</key>
 				<false/>
 				<key>RubberWindowFrame</key>
-				<string>343 145 861 568 0 0 1280 778 </string>
+				<string>223 65 988 680 0 0 1280 778 </string>
 			</dict>
 		</dict>
 	</array>
@@ -260,8 +260,6 @@
 			<key>Layout</key>
 			<array>
 				<dict>
-					<key>BecomeActive</key>
-					<true/>
 					<key>ContentConfiguration</key>
 					<dict>
 						<key>PBXBottomSmartGroupGIDs</key>
@@ -326,7 +324,7 @@
 							<real>186</real>
 						</array>
 						<key>RubberWindowFrame</key>
-						<string>533 255 690 397 0 0 1280 778 </string>
+						<string>542 143 690 397 0 0 1280 778 </string>
 					</dict>
 					<key>Module</key>
 					<string>PBXSmartGroupTreeModule</string>
@@ -363,7 +361,7 @@
 								<key>Frame</key>
 								<string>{{0, 0}, {482, 0}}</string>
 								<key>RubberWindowFrame</key>
-								<string>533 255 690 397 0 0 1280 778 </string>
+								<string>542 143 690 397 0 0 1280 778 </string>
 							</dict>
 							<key>Module</key>
 							<string>PBXNavigatorGroup</string>
@@ -371,6 +369,8 @@
 							<string>0pt</string>
 						</dict>
 						<dict>
+							<key>BecomeActive</key>
+							<true/>
 							<key>ContentConfiguration</key>
 							<dict>
 								<key>PBXProjectModuleGUID</key>
@@ -383,7 +383,7 @@
 								<key>Frame</key>
 								<string>{{0, 5}, {482, 351}}</string>
 								<key>RubberWindowFrame</key>
-								<string>533 255 690 397 0 0 1280 778 </string>
+								<string>542 143 690 397 0 0 1280 778 </string>
 							</dict>
 							<key>Module</key>
 							<string>XCDetailModule</string>
@@ -407,9 +407,9 @@
 			</array>
 			<key>TableOfContents</key>
 			<array>
-				<string>2D3C0C4D0CF4D11A00F6A166</string>
+				<string>2DCEBB310CFCC2DD005C9156</string>
 				<string>1CE0B1FE06471DED0097A5F4</string>
-				<string>2D3C0C4E0CF4D11A00F6A166</string>
+				<string>2DCEBB320CFCC2DD005C9156</string>
 				<string>1CE0B20306471E060097A5F4</string>
 				<string>1CE0B20506471E060097A5F4</string>
 			</array>
@@ -544,11 +544,10 @@
 	<key>WindowOrderList</key>
 	<array>
 		<string>/Volumes/data/programming/Apple/AppleScript/icalbirthdays/iCalBirthdays/iCalBirthdays.xcodeproj</string>
-		<string>2D47CABB0CF4C2BD0049D693</string>
-		<string>2DAE54140CCA745B00DD8B87</string>
+		<string>2DCEBB330CFCC2DD005C9156</string>
 	</array>
 	<key>WindowString</key>
-	<string>533 255 690 397 0 0 1280 778 </string>
+	<string>542 143 690 397 0 0 1280 778 </string>
 	<key>WindowTools</key>
 	<array>
 		<dict>

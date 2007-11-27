@@ -119,7 +119,7 @@ on exportLeopardCalendar(uCalendarName, uSourceWriteFile)
 				write "BEGIN:VEVENT
 " to fRef
 				write "SUMMARY:" & mySummary & "
-" to fRef as Â«class utf8Â»
+" to fRef as Çclass utf8È
 				write "TRANSP:TRANSPARENT" & "
 " to fRef
 				write "UID:" & myUID & "
