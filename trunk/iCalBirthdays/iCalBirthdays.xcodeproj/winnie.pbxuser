@@ -56,12 +56,12 @@
 					PBXFileDataSource_Target_ColumnID,
 				);
 			};
-			PBXPerProjectTemplateStateSaveDate = 217720407;
-			PBXWorkspaceStateSaveDate = 217720407;
+			PBXPerProjectTemplateStateSaveDate = 217882886;
+			PBXWorkspaceStateSaveDate = 217882886;
 		};
 		perUserProjectItems = {
-			2DB8CC530CF895ED00714080 = 2DB8CC530CF895ED00714080 /* PBXTextBookmark */;
-			2DC8A0D30CFA262100D1485B = 2DC8A0D30CFA262100D1485B /* PBXTextBookmark */;
+			2D750D710CFCB44D00F827C9 /* PBXTextBookmark */ = 2D750D710CFCB44D00F827C9 /* PBXTextBookmark */;
+			2D750D880CFCBA4D00F827C9 /* PBXTextBookmark */ = 2D750D880CFCBA4D00F827C9 /* PBXTextBookmark */;
 		};
 		sourceControlManager = 658A2DCF067AB96600421F51 /* Source Control */;
 		userBuildSettings = {
@@ -75,25 +75,23 @@
 			sepNavWindowFrame = "{{390, 53}, {750, 558}}";
 		};
 	};
-	2DB8CC530CF895ED00714080 /* PBXTextBookmark */ = {
+	2D750D710CFCB44D00F827C9 /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
+		comments = "/Volumes/data/programming/Apple/AppleScript/icalbirthdays/iCalBirthdays/main.applescript:265: Expected “then”, etc. but found unknown token. (-2741)";
 		fRef = 65E2187306F52A5F00613B9C /* main.applescript */;
-		name = "main.applescript: 1";
-		rLen = 9561;
-		rLoc = 0;
-		rType = 0;
-		vrLen = 1157;
-		vrLoc = 7607;
-	};
-	2DC8A0D30CFA262100D1485B /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 65E2187306F52A5F00613B9C /* main.applescript */;
-		name = "main.applescript: 272";
 		rLen = 0;
-		rLoc = 9209;
+		rLoc = 265;
+		rType = 1;
+	};
+	2D750D880CFCBA4D00F827C9 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 65E2187306F52A5F00613B9C /* main.applescript */;
+		name = "main.applescript: 267";
+		rLen = 0;
+		rLoc = 8205;
 		rType = 0;
-		vrLen = 1017;
-		vrLoc = 8544;
+		vrLen = 1696;
+		vrLoc = 7376;
 	};
 	65081C2D067A9A0C006247A1 /* iCalBirthdays */ = {
 		activeExec = 0;
@@ -101,8 +99,8 @@
 	65081C3A067A9A0C006247A1 /* Info.plist */ = {
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {950, 1456}}";
-			sepNavSelRange = "{2504, 0}";
-			sepNavVisRange = "{1796, 1256}";
+			sepNavSelRange = "{2836, 0}";
+			sepNavVisRange = "{1777, 1256}";
 			sepNavVisRect = "{{0, 0}, {1062, 509}}";
 			sepNavWindowFrame = "{{12, 115}, {841, 611}}";
 		};
@@ -128,7 +126,7 @@
 			"-action \"iCalBirthdays.action\"",
 		);
 		autoAttachOnCrash = 1;
-		breakpointsEnabled = 1;
+		breakpointsEnabled = 0;
 		configStateDict = {
 			"PBXLSLaunchAction-1" = {
 				PBXLSLaunchAction = 1;
@@ -166,10 +164,10 @@
 	};
 	65E2187306F52A5F00613B9C /* main.applescript */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1849, 4247}}";
-			sepNavSelRange = "{9209, 0}";
-			sepNavVisRect = "{{0, 3749}, {822, 496}}";
-			sepNavWindowFrame = "{{343, 89}, {861, 624}}";
+			sepNavIntBoundsRect = "{{0, 0}, {1417, 4704}}";
+			sepNavSelRange = "{8205, 0}";
+			sepNavVisRect = "{{468, 3735}, {949, 608}}";
+			sepNavWindowFrame = "{{223, 9}, {988, 736}}";
 		};
 	};
 }

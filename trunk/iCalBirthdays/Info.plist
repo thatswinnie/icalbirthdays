@@ -33,10 +33,10 @@
 		<integer>1</integer>
 		<key>additionalAlert</key>
 		<integer>0</integer>
-		<key>additionalAlert_type</key>
+		<key>additionalAlert_interval</key>
 		<integer>0</integer>
-		<key>additionalAlert_text</key>
-		<string>buy a present</string>
+		<key>alertType</key>
+		<string>0</string>
 	</dict>
 	<key>AMDescription</key>
 	<dict>
@@ -92,11 +92,11 @@
 	<key>CFBundlePackageType</key>
 	<string>BNDL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.1</string>
+	<string>1.3</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>1.1</string>
+	<string>1.3</string>
 	<key>NSPrincipalClass</key>
 	<string>AMAppleScriptAction</string>
 </dict>
