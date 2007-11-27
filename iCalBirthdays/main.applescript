@@ -35,6 +35,45 @@ on getiCalPath(nodesPlist, calendarUID, icalSupportFolder, newCal)
 	return myCalendarName
 end getiCalPath
 
+
+-- get duration
+on getiCalDuration(uAlarmTriggerInterval)
+	set absoluteAlarmTrigger to uAlarmTriggerInterval
+	if absoluteAlarmTrigger < 0 then set absoluteAlarmTrigger to -absoluteAlarmTrigger
+	
+	-- positive or negative AlarmTrigger
+	if uAlarmTriggerInterval > 0 then
+		set myAlert to "P"
+	else
+		set myAlert to "-P"
+	end if
+	
+	set myAlertDay to absoluteAlarmTrigger div (24 * 60)
+	set myAlertHour to absoluteAlarmTrigger div 60
+	set myAlarmMinute to absoluteAlarmTrigger mod 60
+	
+	-- days exist
+	if myAlertDay > 0 then
+		set myAlert to myAlert & myAlertDay & "D"
+		
+		set myAlertHour to (absoluteAlarmTrigger - myAlertDay * 24 * 60) div 60
+		set myAlarmMinute to (absoluteAlarmTrigger - myAlertDay * 24 * 60 - myAlertHour * 60) mod 60
+	end if
+	
+	-- hours exist
+	if myAlertHour > 0 then
+		set myAlert to myAlert & "T" & myAlertHour & "H"
+	end if
+	
+	-- hours exist
+	if myAlarmMinute > 0 then
+		set myAlert to myAlert & myAlarmMinute & "M"
+	end if
+	
+	return myAlert
+end getiCalDuration
+
+
 -- export the birthday calendar for Leopard
 on exportLeopardCalendar(uCalendarName, uSourceWriteFile)
 	try
@@ -59,22 +98,6 @@ on exportLeopardCalendar(uCalendarName, uSourceWriteFile)
 				set myURL to url of aEvent as string
 				set myStatus to status of aEvent as string
 				set myCreated to stamp date of aEvent as string
-				
-				-- get the alarm
-				set myAlarm to item 1 of sound alarm of aEvent
-				set myAlarmTriggerInterval to trigger interval of myAlarm
-				set myAlarmSoundName to sound name of myAlarm
-				set myAlarmTime to ""
-				
-				set myAlertHour to myAlarmTriggerInterval div 60
-				set myAlarmMinute to myAlarmTriggerInterval mod 60
-				if myAlertHour > 0 and myAlarmMinute > 0 then
-					set myAlarmTime to "PT" & myAlertHour & "H" & myAlarmMinute & "M"
-				else if myAlertHour > 0 and myAlarmMinute is 0 then
-					set myAlarmTime to "PT" & myAlertHour & "H"
-				else if myAlertHour is 0 then
-					set myAlarmTime to "P" & myAlarmMinute & "M"
-				end if
 				
 				-- set start date
 				set theDate to start date of aEvent
@@ -110,22 +133,32 @@ on exportLeopardCalendar(uCalendarName, uSourceWriteFile)
 				write "RRULE:" & myRecurrence & "
 " to fRef
 				write "URL:" & myURL & "
-" to fRef
-				write "STATUS:" & myStatus & "
+				
 " to fRef
 				
-				write "BEGIN:VALARM
+				-- get the alarms
+				set itemCount to the count of items of sound alarm of aEvent
+				repeat with i from 1 to the itemCount
+					set myAlarm to item i of sound alarm of aEvent
+					set myAlarmTriggerInterval to trigger interval of myAlarm
+					set myAlarmSoundName to sound name of myAlarm
+					set myAlarmTime to my getiCalDuration(myAlarmTriggerInterval)
+					
+					write "BEGIN:VALARM
 " to fRef
-				write "ACTION:AUDIO" & "
+					write "ACTION:AUDIO" & "
 " to fRef
-				write "TRIGGER:" & myAlarmTime & "
+					write "TRIGGER:" & myAlarmTime & "
 " to fRef
-				write "ATTACH;VALUE=URI:" & myAlarmSoundName & "
+					write "ATTACH;VALUE=URI:" & myAlarmSoundName & "
 " to fRef
-				write "END:VALARM
+					write "END:VALARM
+
 " to fRef
+				end repeat
 				
 				write "END:VEVENT
+
 
 " to fRef
 			end repeat
@@ -152,11 +185,10 @@ on run {input, parameters}
 	set alert_time_minute_index to |alertTime_minute| of parameters
 	set alert_time_part_index to |alertTime_part| of parameters
 	set additionalAlert to |additionalAlert| of parameters
-	set additionalAlert_type_index to |additionalAlert_type| of parameters
-	set additionalAlert_text to |additionalAlert_text| of parameters
+	set additionalAlert_interval_index to |additionalAlert_interval| of parameters
+	set alert_type_index to |alertType| of parameters
 	set error_01 to "There are no entries with birthday data entered in the Address Book."
 	set calendar_entry to "'s birthday"
-	set calendar_additional_entry to "'s birthday, " & additionalAlert_text
 	set today to date (date string of (current date) & " 12:00:00 AM")
 	set sourceFile to ""
 	set output to ""
@@ -231,25 +263,26 @@ on run {input, parameters}
 				tell this_calendar
 					set this_event to (make new event at end of events with properties {start date:next_birthday, summary:(this_name & calendar_entry), recurrence:repeat_string, allday event:true, url:this_URL, status:confirmed})
 					
-					-- adding alarm to the event
-					tell this_event
-						make new sound alarm at end of sound alarms with properties {trigger interval:alert_time}
-					end tell
+					if alert_type_index is not 1 then
+						-- adding alarm to the event
+						tell this_event
+							make new sound alarm at end of sound alarms with properties {trigger interval:alert_time}
+						end tell
+					end if
 					
 					-- additional alert
-					if additionalAlert > 0 then
-						if additionalAlert_type_index is 0 then
-							set next_additional_birthday to (next_birthday - additionalAlert * days)
-						else if additionalAlert_type_index is 1 then
-							set next_additional_birthday to (next_birthday - additionalAlert * weeks)
+					if additionalAlert > 0 and alert_type_index > 0 then
+						if additionalAlert_interval_index is 0 then
+							set next_additional_birthday to (alert_time - additionalAlert * 60 * 24)
+						else if additionalAlert_interval_index is 1 then
+							set next_additional_birthday to (alert_time - additionalAlert * 60 * 24 * 7)
 						else
-							set next_additional_birthday to next_birthday
+							set next_additional_birthday to alert_time
 						end if
-						set this_additional_event to (make new event at end of events with properties {start date:next_additional_birthday, end date:next_additional_birthday, summary:(this_name & calendar_additional_entry), recurrence:repeat_string, allday event:true, url:this_URL, status:confirmed})
 						
 						-- adding alarm to the event
-						tell this_additional_event
-							make new sound alarm at end of sound alarms with properties {trigger interval:alert_time}
+						tell this_event
+							make new sound alarm at end of sound alarms with properties {trigger interval:next_additional_birthday}
 						end tell
 						
 					end if
@@ -269,8 +302,6 @@ on run {input, parameters}
 			my exportLeopardCalendar(calendar_name, sourceWriteFile)
 			set output to sourceWriteFile as alias
 		end if
-		
-		-- tell application "iCal" to save this_calendar in output
 		
 		tell application "iCal" to quit
 		tell application "Address Book" to quit
