@@ -119,7 +119,7 @@ on exportLeopardCalendar(uCalendarName, uSourceWriteFile)
 				write "BEGIN:VEVENT
 " to fRef
 				write "SUMMARY:" & mySummary & "
-" to fRef as Çclass utf8È
+" to fRef as Â«class utf8Â»
 				write "TRANSP:TRANSPARENT" & "
 " to fRef
 				write "UID:" & myUID & "
@@ -176,6 +176,11 @@ on exportLeopardCalendar(uCalendarName, uSourceWriteFile)
 end exportLeopardCalendar
 
 
+on localized_string(key_string)
+	return localized string of key_string in bundle with identifier "com.thatswinnie.Automator.iCalBirthdays"
+end localized_string
+
+
 
 on run {input, parameters}
 	global these_people, people_IDs
@@ -188,8 +193,7 @@ on run {input, parameters}
 	set additionalAlert_interval_index to |additionalAlert_interval| of parameters
 	set alert_type_index to |alertType| of parameters
 	set error_01 to "There are no entries with birthday data entered in the Address Book."
-	set calendar_entry to "'s birthday"
-	set today to date (date string of (current date) & " 12:00:00 AM")
+	set today to current date
 	set sourceFile to ""
 	set output to ""
 	set newCal to false
@@ -252,6 +256,8 @@ on run {input, parameters}
 					set the numeric_month to the month of the real_birthday as integer
 					set the repeat_string to "FREQ=YEARLY;INTERVAL=1;BYMONTH=" & (numeric_month as string)
 					set this_day to the day of the real_birthday as string
+					set this_age to ((year of today) - (year of real_birthday))
+					set this_alert_text to (this_name & my localized_string("'s birthday") & " (" & this_age & " " & my localized_string("years") & ")")
 					
 					-- calculate date of next birthday
 					copy real_birthday to next_birthday
@@ -261,7 +267,7 @@ on run {input, parameters}
 				
 				-- create calendar event
 				tell this_calendar
-					set this_event to (make new event at end of events with properties {start date:next_birthday, summary:(this_name & calendar_entry), recurrence:repeat_string, allday event:true, url:this_URL, status:confirmed})
+					set this_event to (make new event at end of events with properties {start date:next_birthday, summary:(this_alert_text), recurrence:repeat_string, allday event:true, url:this_URL, status:confirmed})
 					
 					if alert_type_index is not 1 then
 						-- adding alarm to the event

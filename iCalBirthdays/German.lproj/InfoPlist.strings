@@ -1,0 +1,28 @@
+﻿/* Localized versions of Info.plist keys */
+
+NSHumanReadableCopyright = "thatswinnie (2007)";
+
+AMName = "iCalBirthdays";
+
+/*  AMApplication localized strings  */
+/*  e.g. "TextEdit" = "TextEdit";  */
+
+/*  AMCategory localized strings  */
+/*  e.g. "Text" = "Text";  */
+
+/*  AMDefaultParameters localized values  */
+/*  e.g. myDefaultIntegerParameter = 0;  */
+iCalCalendarName = "Geburtstagserinnerungen";
+
+/*  AMDescription localized strings  */
+AMDAlert = "Alle Termine des Kalenders werden gelöscht.";
+AMDResult = "Exportiert den Geburtstagskalender in eine Datei und gibt eine Referenz auf die Datei zurück.";
+AMDSummary = "Erstellt einen Geburtstagskalender von den Kontakten des Adressbuchs in iCal und fügt einen Alarm hinzu.";
+
+/*  AMKeyword localized strings  */
+/*  e.g. "Filter" = "Filter";  */
+
+/*  AMWarning localized strings  */
+ApplyButton = "(* Button label for user to add proposed Action, e.g. Add. *)";
+IgnoreButton = "(* Button label for user not to add proposed Action, e.g. Don't Add. *)";
+Message = "(* Warning message presented to user goes here. *)";
