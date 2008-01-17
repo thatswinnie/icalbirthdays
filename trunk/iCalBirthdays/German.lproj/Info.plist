@@ -24,7 +24,7 @@
 	<key>AMDefaultParameters</key>
 	<dict>
 		<key>iCalCalendarName</key>
-		<string>my birthdays</string>
+		<string>Geburtstagserinnerungen</string>
 		<key>alertTime_hour</key>
 		<integer>4</integer>
 		<key>alertTime_minute</key>
@@ -41,11 +41,11 @@
 	<key>AMDescription</key>
 	<dict>
 		<key>AMDAlert</key>
-		<string>All entries of the calendar will be deleted.</string>
+		<string>Alle Termine des Kalenders werden gelöscht.</string>
 		<key>AMDResult</key>
-		<string>Exports the birthday calendar to a file and returns the reference to the file.</string>
+		<string>Exportiert den Geburtstagskalender in eine Datei und gibt eine Referenz auf die Datei zurück.</string>
 		<key>AMDSummary</key>
-		<string>Creates a birthday calendar in iCal from the contacts in Address Book and adds an alarm.</string>
+		<string>Erstellt einen Geburtstagskalender von den Kontakten des Adressbuchs in iCal und fügt einen Alarm hinzu.</string>
 	</dict>
 	<key>AMIconName</key>
 	<string></string>
