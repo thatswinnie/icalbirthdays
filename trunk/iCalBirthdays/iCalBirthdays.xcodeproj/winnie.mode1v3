@@ -214,10 +214,10 @@
 						<key>_historyCapacity</key>
 						<integer>0</integer>
 						<key>bookmark</key>
-						<string>2D9BA5E40D3FE0C50003D550</string>
+						<string>2DAE3AD80D3FEB6200514B47</string>
 						<key>history</key>
 						<array>
-							<string>2D04EF9E0D3D183100059707</string>
+							<string>2D544E440D3FEAD400563D38</string>
 						</array>
 					</dict>
 					<key>SplitCount</key>
@@ -234,46 +234,6 @@
 				<false/>
 				<key>RubberWindowFrame</key>
 				<string>212 79 988 680 0 0 1280 778 </string>
-			</dict>
-		</dict>
-		<dict>
-			<key>Content</key>
-			<dict>
-				<key>PBXProjectModuleGUID</key>
-				<string>2D9BA5D30D3FDD110003D550</string>
-				<key>PBXProjectModuleLabel</key>
-				<string>Info.plist</string>
-				<key>PBXSplitModuleInNavigatorKey</key>
-				<dict>
-					<key>Split0</key>
-					<dict>
-						<key>PBXProjectModuleGUID</key>
-						<string>2D9BA5D40D3FDD110003D550</string>
-						<key>PBXProjectModuleLabel</key>
-						<string>Info.plist</string>
-						<key>_historyCapacity</key>
-						<integer>0</integer>
-						<key>bookmark</key>
-						<string>2D9BA5E50D3FE0C50003D550</string>
-						<key>history</key>
-						<array>
-							<string>2D9BA5B90D3FD8980003D550</string>
-						</array>
-					</dict>
-					<key>SplitCount</key>
-					<string>1</string>
-				</dict>
-				<key>StatusBarVisibility</key>
-				<true/>
-			</dict>
-			<key>Geometry</key>
-			<dict>
-				<key>Frame</key>
-				<string>{{0, 20}, {841, 514}}</string>
-				<key>PBXModuleWindowStatusBarHidden2</key>
-				<false/>
-				<key>RubberWindowFrame</key>
-				<string>134 84 841 555 0 0 1280 778 </string>
 			</dict>
 		</dict>
 	</array>
@@ -310,6 +270,8 @@
 			<key>Layout</key>
 			<array>
 				<dict>
+					<key>BecomeActive</key>
+					<true/>
 					<key>ContentConfiguration</key>
 					<dict>
 						<key>PBXBottomSmartGroupGIDs</key>
@@ -464,9 +426,9 @@
 			</array>
 			<key>TableOfContents</key>
 			<array>
-				<string>2D9BA5D00D3FDD110003D550</string>
+				<string>2DAE3AD50D3FEB6200514B47</string>
 				<string>1CE0B1FE06471DED0097A5F4</string>
-				<string>2D9BA5D10D3FDD110003D550</string>
+				<string>2DAE3AD60D3FEB6200514B47</string>
 				<string>1CE0B20306471E060097A5F4</string>
 				<string>1CE0B20506471E060097A5F4</string>
 			</array>
@@ -598,10 +560,6 @@
 	<integer>5</integer>
 	<key>WindowOrderList</key>
 	<array>
-		<string>1C78EAAD065D492600B07095</string>
-		<string>1CD10A99069EF8BA00B06720</string>
-		<string>2DB8D1790CF4DEA0009A8902</string>
-		<string>2D9BA5D30D3FDD110003D550</string>
 		<string>/Volumes/data/programming/Apple/AppleScript/icalbirthdays/iCalBirthdays/iCalBirthdays.xcodeproj</string>
 		<string>2D04EF750D3C149400059707</string>
 	</array>
@@ -627,7 +585,7 @@
 								<key>PBXProjectModuleGUID</key>
 								<string>1CD0528F0623707200166675</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>main.applescript</string>
+								<string></string>
 								<key>StatusBarVisibility</key>
 								<true/>
 							</dict>
@@ -644,8 +602,6 @@
 							<string>439pt</string>
 						</dict>
 						<dict>
-							<key>BecomeActive</key>
-							<true/>
 							<key>ContentConfiguration</key>
 							<dict>
 								<key>PBXProjectModuleGUID</key>
@@ -685,7 +641,7 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>2DB8D1790CF4DEA0009A8902</string>
-				<string>2D9BA5B10D3FD8640003D550</string>
+				<string>2D544E430D3FEAD400563D38</string>
 				<string>1CD0528F0623707200166675</string>
 				<string>XCMainBuildResultsModuleGUID</string>
 			</array>
