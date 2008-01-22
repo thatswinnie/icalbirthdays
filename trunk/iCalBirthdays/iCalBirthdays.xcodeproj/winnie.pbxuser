@@ -59,12 +59,12 @@
 					PBXFileDataSource_Target_ColumnID,
 				);
 			};
-			PBXPerProjectTemplateStateSaveDate = 222292831;
-			PBXWorkspaceStateSaveDate = 222292831;
+			PBXPerProjectTemplateStateSaveDate = 222677691;
+			PBXWorkspaceStateSaveDate = 222677691;
 		};
 		perUserProjectItems = {
-			2D544E440D3FEAD400563D38 /* PBXTextBookmark */ = 2D544E440D3FEAD400563D38 /* PBXTextBookmark */;
-			2DAE3AD80D3FEB6200514B47 /* PBXTextBookmark */ = 2DAE3AD80D3FEB6200514B47 /* PBXTextBookmark */;
+			2D3B55A00D45CC1F009D59A0 /* PBXTextBookmark */ = 2D3B55A00D45CC1F009D59A0 /* PBXTextBookmark */;
+			2D4551E60D42CCD800C791C4 /* PBXTextBookmark */ = 2D4551E60D42CCD800C791C4 /* PBXTextBookmark */;
 		};
 		sourceControlManager = 658A2DCF067AB96600421F51 /* Source Control */;
 		userBuildSettings = {
@@ -80,26 +80,36 @@
 	};
 	2D04EF470D3C107500059707 /* English */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {929, 608}}";
-			sepNavSelRange = "{43, 0}";
-			sepNavVisRange = "{0, 71}";
-			sepNavWindowFrame = "{{38, 16}, {988, 736}}";
+			sepNavIntBoundsRect = "{{0, 0}, {477, 326}}";
+			sepNavSelRange = "{61, 0}";
+			sepNavVisRange = "{0, 86}";
+			sepNavWindowFrame = "{{38, 298}, {536, 454}}";
 		};
 	};
 	2D04EF4D0D3C10A800059707 /* German */ = {
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {556, 330}}";
-			sepNavSelRange = "{43, 0}";
-			sepNavVisRange = "{0, 76}";
+			sepNavSelRange = "{72, 0}";
+			sepNavVisRange = "{0, 93}";
 			sepNavWindowFrame = "{{529, 298}, {615, 458}}";
 		};
 	};
-	2D544E440D3FEAD400563D38 /* PBXTextBookmark */ = {
+	2D3B55A00D45CC1F009D59A0 /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
 		fRef = 65E2187306F52A5F00613B9C /* main.applescript */;
-		name = "main.applescript: 323";
+		name = "main.applescript: 328";
 		rLen = 0;
-		rLoc = 10188;
+		rLoc = 10325;
+		rType = 0;
+		vrLen = 1886;
+		vrLoc = 6885;
+	};
+	2D4551E60D42CCD800C791C4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 65E2187306F52A5F00613B9C /* main.applescript */;
+		name = "to the count of birthday_people";
+		rLen = 32;
+		rLoc = 6913;
 		rType = 0;
 		vrLen = 1341;
 		vrLoc = 8847;
@@ -111,16 +121,6 @@
 			sepNavVisRange = "{0, 1073}";
 			sepNavWindowFrame = "{{504, 25}, {988, 736}}";
 		};
-	};
-	2DAE3AD80D3FEB6200514B47 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 65E2187306F52A5F00613B9C /* main.applescript */;
-		name = "main.applescript: 323";
-		rLen = 0;
-		rLoc = 10188;
-		rType = 0;
-		vrLen = 1341;
-		vrLoc = 8847;
 	};
 	65081C2D067A9A0C006247A1 /* iCalBirthdays */ = {
 		activeExec = 0;
@@ -193,9 +193,9 @@
 	};
 	65E2187306F52A5F00613B9C /* main.applescript */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1337, 4792}}";
-			sepNavSelRange = "{10188, 0}";
-			sepNavVisRect = "{{0, 4184}, {949, 608}}";
+			sepNavIntBoundsRect = "{{0, 0}, {1337, 4867}}";
+			sepNavSelRange = "{10325, 0}";
+			sepNavVisRect = "{{0, 3587}, {949, 608}}";
 			sepNavWindowFrame = "{{212, 23}, {988, 736}}";
 		};
 	};
