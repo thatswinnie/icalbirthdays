@@ -200,7 +200,7 @@
 			<key>Content</key>
 			<dict>
 				<key>PBXProjectModuleGUID</key>
-				<string>2D04EF750D3C149400059707</string>
+				<string>2D4551E40D42CCD800C791C4</string>
 				<key>PBXProjectModuleLabel</key>
 				<string>main.applescript</string>
 				<key>PBXSplitModuleInNavigatorKey</key>
@@ -208,16 +208,16 @@
 					<key>Split0</key>
 					<dict>
 						<key>PBXProjectModuleGUID</key>
-						<string>2D04EF760D3C149400059707</string>
+						<string>2D4551E50D42CCD800C791C4</string>
 						<key>PBXProjectModuleLabel</key>
 						<string>main.applescript</string>
 						<key>_historyCapacity</key>
 						<integer>0</integer>
 						<key>bookmark</key>
-						<string>2DAE3AD80D3FEB6200514B47</string>
+						<string>2D3B55A00D45CC1F009D59A0</string>
 						<key>history</key>
 						<array>
-							<string>2D544E440D3FEAD400563D38</string>
+							<string>2D4551E60D42CCD800C791C4</string>
 						</array>
 					</dict>
 					<key>SplitCount</key>
@@ -426,9 +426,9 @@
 			</array>
 			<key>TableOfContents</key>
 			<array>
-				<string>2DAE3AD50D3FEB6200514B47</string>
+				<string>2D3B55970D45CAC2009D59A0</string>
 				<string>1CE0B1FE06471DED0097A5F4</string>
-				<string>2DAE3AD60D3FEB6200514B47</string>
+				<string>2D3B55980D45CAC2009D59A0</string>
 				<string>1CE0B20306471E060097A5F4</string>
 				<string>1CE0B20506471E060097A5F4</string>
 			</array>
@@ -560,8 +560,9 @@
 	<integer>5</integer>
 	<key>WindowOrderList</key>
 	<array>
+		<string>2DB8D1790CF4DEA0009A8902</string>
 		<string>/Volumes/data/programming/Apple/AppleScript/icalbirthdays/iCalBirthdays/iCalBirthdays.xcodeproj</string>
-		<string>2D04EF750D3C149400059707</string>
+		<string>2D4551E40D42CCD800C791C4</string>
 	</array>
 	<key>WindowString</key>
 	<string>24 64 690 397 0 0 1280 778 </string>
@@ -641,7 +642,7 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>2DB8D1790CF4DEA0009A8902</string>
-				<string>2D544E430D3FEAD400563D38</string>
+				<string>2D3B559E0D45CB40009D59A0</string>
 				<string>1CD0528F0623707200166675</string>
 				<string>XCMainBuildResultsModuleGUID</string>
 			</array>

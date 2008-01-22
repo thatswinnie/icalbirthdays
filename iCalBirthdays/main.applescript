@@ -257,7 +257,12 @@ on run {input, parameters}
 					set the repeat_string to "FREQ=YEARLY;INTERVAL=1;BYMONTH=" & (numeric_month as string)
 					set this_day to the day of the real_birthday as string
 					set this_age to ((year of today) - (year of real_birthday))
-					set this_alert_text to (this_name & my localized_string("'s birthday") & " (" & this_age & " " & my localized_string("years") & ")")
+					if (this_age > 1) then
+						set yearString to my localized_string("years")
+					else
+						set yearString to my localized_string("year")
+					end if
+					set this_alert_text to (this_name & my localized_string("'s birthday") & " (" & this_age & " " & yearString & ")")
 					
 					-- calculate date of next birthday
 					copy real_birthday to next_birthday
