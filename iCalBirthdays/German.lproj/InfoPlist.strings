@@ -12,7 +12,7 @@ AMName = "iCalBirthdays";
 
 /*  AMDefaultParameters localized values  */
 /*  e.g. myDefaultIntegerParameter = 0;  */
-iCalCalendarName = "Geburtstagserinnerungen";
+ipt_iCalCalendarName = "Geburtstagserinnerungen";
 
 /*  AMDescription localized strings  */
 AMDAlert = "Alle Termine des Kalenders werden gelöscht.";
