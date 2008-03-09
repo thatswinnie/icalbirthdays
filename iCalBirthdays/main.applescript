@@ -185,13 +185,15 @@ end localized_string
 on run {input, parameters}
 	global these_people, people_IDs
 	
-	set calendar_name to |iCalCalendarName| of parameters
-	set alert_time_hour_index to |alertTime_hour| of parameters
-	set alert_time_minute_index to |alertTime_minute| of parameters
-	set alert_time_part_index to |alertTime_part| of parameters
-	set additionalAlert to |additionalAlert| of parameters
-	set additionalAlert_interval_index to |additionalAlert_interval| of parameters
-	set alert_type_index to |alertType| of parameters
+	set calendar_name to |ipt_iCalCalendarName| of parameters
+	set alert_time_hour_index to |ddn_alertTime_hour| of parameters
+	set alert_time_minute_index to |ddn_alertTime_minute| of parameters
+	set alert_time_part_index to |ddn_alertTime_part| of parameters
+	set additionalAlert to |spr_additionalAlert| of parameters
+	set additionalAlert_interval_index to |ddn_additionalAlert_interval| of parameters
+	set alert_type_index to |ddn_alertType| of parameters
+	set showURL to cbx_url of parameters
+	set showFormat_index to ddn_format of parameters
 	set error_01 to "There are no entries with birthday data entered in the Address Book."
 	set today to current date
 	set sourceFile to ""
@@ -251,18 +253,31 @@ on run {input, parameters}
 					set this_person to item i of birthday_people
 					set real_birthday to the birth date of this_person
 					set this_name to the name of this_person
+					set this_firstname to the first name of this_person as string
+					--display dialog this_name
+					
+					if this_firstname = "missing value" then
+						set this_firstname to this_name
+					else
+						set this_firstname to this_firstname
+					end if
+					
 					set this_ID to the id of this_person
 					set this_URL to ("addressbook://" & this_ID)
 					set the numeric_month to the month of the real_birthday as integer
 					set the repeat_string to "FREQ=YEARLY;INTERVAL=1;BYMONTH=" & (numeric_month as string)
 					set this_day to the day of the real_birthday as string
-					set this_age to ((year of today) - (year of real_birthday))
-					if (this_age > 1) then
-						set yearString to my localized_string("years")
+					
+					-- set alert text
+					if showFormat_index is 0 then
+						set this_alert_text to (this_name & my localized_string("'s birthday"))
+					else if showFormat_index is 1 then
+						set this_alert_text to (this_firstname & my localized_string("'s birthday"))
+					else if showFormat_index is 2 then
+						set this_alert_text to (this_name & " (" & year of real_birthday & ")")
 					else
-						set yearString to my localized_string("year")
+						set this_alert_text to (this_firstname & " (" & year of real_birthday & ")")
 					end if
-					set this_alert_text to (this_name & my localized_string("'s birthday") & " (" & this_age & " " & yearString & ")")
 					
 					-- calculate date of next birthday
 					copy real_birthday to next_birthday
@@ -272,7 +287,12 @@ on run {input, parameters}
 				
 				-- create calendar event
 				tell this_calendar
-					set this_event to (make new event at end of events with properties {start date:next_birthday, summary:(this_alert_text), recurrence:repeat_string, allday event:true, url:this_URL, status:confirmed})
+					if showURL is true then
+						set this_event to (make new event at end of events with properties {start date:next_birthday, summary:(this_alert_text), recurrence:repeat_string, allday event:true, url:this_URL, status:confirmed})
+					else
+						set this_event to (make new event at end of events with properties {start date:next_birthday, summary:(this_alert_text), recurrence:repeat_string, allday event:true, status:confirmed})
+					end if
+					
 					
 					if alert_type_index is not 1 then
 						-- adding alarm to the event

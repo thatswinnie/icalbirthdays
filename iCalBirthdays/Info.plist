@@ -23,20 +23,24 @@
 	<string>iCal</string>
 	<key>AMDefaultParameters</key>
 	<dict>
-		<key>iCalCalendarName</key>
+		<key>ipt_iCalCalendarName</key>
 		<string>my birthdays</string>
-		<key>alertTime_hour</key>
+		<key>ddn_alertTime_hour</key>
 		<integer>4</integer>
-		<key>alertTime_minute</key>
+		<key>ddn_alertTime_minute</key>
 		<integer>0</integer>
-		<key>alertTime_part</key>
+		<key>ddn_alertTime_part</key>
 		<integer>1</integer>
-		<key>additionalAlert</key>
+		<key>spr_additionalAlert</key>
 		<integer>0</integer>
-		<key>additionalAlert_interval</key>
+		<key>ddn_additionalAlert_interval</key>
 		<integer>0</integer>
-		<key>alertType</key>
+		<key>ddn_alertType</key>
 		<string>0</string>
+		<key>ddn_format</key>
+		<integer>0</integer>
+		<key>cbx_url</key>
+		<true/>
 	</dict>
 	<key>AMDescription</key>
 	<dict>
@@ -82,7 +86,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>English</string>
 	<key>CFBundleGetInfoString</key>
-	<string>iCalBirthdays version 1.4, Copyright (c) 2007, thatswinnie.</string>
+	<string>iCalBirthdays version 1.5, Copyright (c) 2008, thatswinnie.</string>
 	<key>CFBundleIconFile</key>
 	<string></string>
 	<key>CFBundleIdentifier</key>
@@ -92,11 +96,11 @@
 	<key>CFBundlePackageType</key>
 	<string>BNDL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.4</string>
+	<string>1.5</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>1.4</string>
+	<string>1.5</string>
 	<key>NSPrincipalClass</key>
 	<string>AMAppleScriptAction</string>
 </dict>
