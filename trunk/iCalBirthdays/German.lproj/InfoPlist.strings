@@ -13,10 +13,12 @@ AMName = "iCalBirthdays";
 /*  AMDefaultParameters localized values  */
 /*  e.g. myDefaultIntegerParameter = 0;  */
 ipt_iCalCalendarName = "Geburtstagserinnerungen";
+ipt_alert_format = "%firstname% %lastname% wird %age%";
+ipt_reminder_format = "Geschenk für %firstname% %lastname% kaufen";
 
 /*  AMDescription localized strings  */
 AMDAlert = "Alle Termine des Kalenders werden gelöscht.";
-AMDResult = "Exportiert den Geburtstagskalender in eine Datei und gibt eine Referenz auf die Datei zurück.";
+AMDResult = "Exportiert den Geburtstagskalender optional in eine Datei und gibt eine Referenz auf die Datei zurück.";
 AMDSummary = "Erstellt einen Geburtstagskalender von den Kontakten des Adressbuchs in iCal und fügt einen Alarm hinzu.";
 
 /*  AMKeyword localized strings  */
