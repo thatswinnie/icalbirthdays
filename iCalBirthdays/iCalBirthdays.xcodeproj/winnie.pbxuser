@@ -1,7 +1,6 @@
 // !$*UTF8*$!
 {
 	089C1669FE841209C02AAC07 /* Project object */ = {
-		activeArchitecture = i386;
 		activeBuildConfigurationName = Release;
 		activeExecutable = 658A2E03067AB99300421F51 /* Automator */;
 		activeTarget = 65081C2D067A9A0C006247A1 /* iCalBirthdays */;
@@ -59,18 +58,8 @@
 					PBXFileDataSource_Target_ColumnID,
 				);
 			};
-			PBXPerProjectTemplateStateSaveDate = 226790638;
-			PBXWorkspaceStateSaveDate = 226790638;
-		};
-		perUserProjectItems = {
-			2D4520B40D848D110054EC29 /* PBXBookmark */ = 2D4520B40D848D110054EC29 /* PBXBookmark */;
-			2D4520BE0D848DFC0054EC29 /* PBXBookmark */ = 2D4520BE0D848DFC0054EC29 /* PBXBookmark */;
-			2D4520C80D848E1D0054EC29 /* PBXTextBookmark */ = 2D4520C80D848E1D0054EC29 /* PBXTextBookmark */;
-			2D4520CC0D848E1D0054EC29 /* PBXTextBookmark */ = 2D4520CC0D848E1D0054EC29 /* PBXTextBookmark */;
-			2D4520D20D848E1D0054EC29 /* PBXTextBookmark */ = 2D4520D20D848E1D0054EC29 /* PBXTextBookmark */;
-			2D4520D30D848E1D0054EC29 /* PBXTextBookmark */ = 2D4520D30D848E1D0054EC29 /* PBXTextBookmark */;
-			2D4520D40D848E1D0054EC29 /* PBXTextBookmark */ = 2D4520D40D848E1D0054EC29 /* PBXTextBookmark */;
-			2D4520D50D848E1D0054EC29 /* PBXTextBookmark */ = 2D4520D50D848E1D0054EC29 /* PBXTextBookmark */;
+			PBXPerProjectTemplateStateSaveDate = 242429401;
+			PBXWorkspaceStateSaveDate = 242429401;
 		};
 		sourceControlManager = 658A2DCF067AB96600421F51 /* Source Control */;
 		userBuildSettings = {
@@ -79,100 +68,32 @@
 	089C167EFE841241C02AAC07 /* English */ = {
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {691, 430}}";
-			sepNavSelRange = "{378, 0}";
-			sepNavVisRange = "{0, 1036}";
-			sepNavWindowFrame = "{{390, 53}, {750, 558}}";
+			sepNavSelRange = "{396, 126}";
+			sepNavVisRange = "{0, 1173}";
+			sepNavWindowFrame = "{{390, 52}, {750, 558}}";
 		};
 	};
 	2D04EF470D3C107500059707 /* English */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {477, 326}}";
+			sepNavIntBoundsRect = "{{0, 0}, {477, 303}}";
 			sepNavSelRange = "{61, 0}";
-			sepNavVisRange = "{0, 86}";
+			sepNavVisRange = "{0, 109}";
 			sepNavWindowFrame = "{{38, 298}, {536, 454}}";
 		};
 	};
 	2D04EF4D0D3C10A800059707 /* German */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {556, 330}}";
+			sepNavIntBoundsRect = "{{0, 0}, {421, 84}}";
 			sepNavSelRange = "{72, 0}";
-			sepNavVisRange = "{0, 93}";
+			sepNavVisRange = "{0, 116}";
 			sepNavWindowFrame = "{{529, 298}, {615, 458}}";
 		};
 	};
-	2D4520B40D848D110054EC29 /* PBXBookmark */ = {
-		isa = PBXBookmark;
-		fRef = 65E2187306F52A5F00613B9C /* main.applescript */;
-	};
-	2D4520BE0D848DFC0054EC29 /* PBXBookmark */ = {
-		isa = PBXBookmark;
-		fRef = 089C167EFE841241C02AAC07 /* English */;
-	};
-	2D4520C80D848E1D0054EC29 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 65081C3A067A9A0C006247A1 /* Info.plist */;
-		name = "Info.plist: 103";
-		rLen = 0;
-		rLoc = 3045;
-		rType = 0;
-		vrLen = 835;
-		vrLoc = 257;
-	};
-	2D4520CC0D848E1D0054EC29 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 2D55F86D0D2DAD1300E9A2EC /* German */;
-		name = "InfoPlist.strings: 15";
-		rLen = 20;
-		rLoc = 358;
-		rType = 0;
-		vrLen = 1073;
-		vrLoc = 0;
-	};
-	2D4520D20D848E1D0054EC29 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 089C167EFE841241C02AAC07 /* English */;
-		name = "InfoPlist.strings: 15";
-		rLen = 0;
-		rLoc = 378;
-		rType = 0;
-		vrLen = 1036;
-		vrLoc = 0;
-	};
-	2D4520D30D848E1D0054EC29 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 65081C3A067A9A0C006247A1 /* Info.plist */;
-		name = "Info.plist: 26";
-		rLen = 20;
-		rLoc = 619;
-		rType = 0;
-		vrLen = 835;
-		vrLoc = 257;
-	};
-	2D4520D40D848E1D0054EC29 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 2D55F86D0D2DAD1300E9A2EC /* German */;
-		name = "InfoPlist.strings: 15";
-		rLen = 0;
-		rLoc = 378;
-		rType = 0;
-		vrLen = 1077;
-		vrLoc = 0;
-	};
-	2D4520D50D848E1D0054EC29 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 65E2187306F52A5F00613B9C /* main.applescript */;
-		name = iCalCalendarName;
-		rLen = 16;
-		rLoc = 4962;
-		rType = 0;
-		vrLen = 1399;
-		vrLoc = 4463;
-	};
 	2D55F86D0D2DAD1300E9A2EC /* German */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {929, 608}}";
-			sepNavSelRange = "{378, 0}";
-			sepNavVisRange = "{0, 1077}";
+			sepNavIntBoundsRect = "{{0, 0}, {929, 585}}";
+			sepNavSelRange = "{529, 0}";
+			sepNavVisRange = "{0, 1210}";
 			sepNavWindowFrame = "{{304, 32}, {988, 736}}";
 		};
 	};
@@ -185,7 +106,7 @@
 			sepNavSelRange = "{619, 20}";
 			sepNavVisRange = "{257, 835}";
 			sepNavVisRect = "{{0, 0}, {1062, 509}}";
-			sepNavWindowFrame = "{{134, 28}, {841, 611}}";
+			sepNavWindowFrame = "{{350, 20}, {841, 611}}";
 		};
 	};
 	658A2DCF067AB96600421F51 /* Source Control */ = {
@@ -211,6 +132,21 @@
 		autoAttachOnCrash = 1;
 		breakpointsEnabled = 0;
 		configStateDict = {
+			"PBXLSLaunchAction-0" = {
+				PBXLSLaunchAction = 0;
+				PBXLSLaunchStartAction = 1;
+				PBXLSLaunchStdioStyle = 2;
+				PBXLSLaunchStyle = 0;
+				class = PBXLSRunLaunchConfig;
+				commandLineArgs = (
+				);
+				displayName = "Executable Runner";
+				environment = {
+				};
+				identifier = com.apple.Xcode.launch.runConfig;
+				remoteHostInfo = "";
+				startActionInfo = "";
+			};
 			"PBXLSLaunchAction-1" = {
 				PBXLSLaunchAction = 1;
 				PBXLSLaunchStartAction = 1;
@@ -247,10 +183,11 @@
 	};
 	65E2187306F52A5F00613B9C /* main.applescript */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1361, 5163}}";
-			sepNavSelRange = "{4962, 16}";
-			sepNavVisRect = "{{0, 2477}, {949, 608}}";
-			sepNavWindowFrame = "{{195, 30}, {988, 736}}";
+			sepNavIntBoundsRect = "{{0, 0}, {1519, 4455}}";
+			sepNavSelRange = "{11637, 0}";
+			sepNavVisRange = "{4324, 1941}";
+			sepNavVisRect = "{{0, 3790}, {913, 665}}";
+			sepNavWindowFrame = "{{1581, -200}, {958, 794}}";
 		};
 	};
 }

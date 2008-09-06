@@ -13,6 +13,7 @@
 			contextName = "";
 			files = (
 				65E2187606F52A5F00613B9C /* main.applescript in AppleScript */,
+				2D4A53AB0E6975B9000585DE /* export.scpt in AppleScript */,
 			);
 			isSharedContext = 0;
 			runOnlyForDeploymentPostprocessing = 0;
@@ -20,8 +21,11 @@
 /* End PBXAppleScriptBuildPhase section */
 
 /* Begin PBXBuildFile section */
+		2D03073D0E69E4C100D0D02B /* iconLarge.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 2D03073B0E69E4C100D0D02B /* iconLarge.tiff */; };
+		2D03073E0E69E4C100D0D02B /* icon.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 2D03073C0E69E4C100D0D02B /* icon.tiff */; };
 		2D04EEBC0D3C00E900059707 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 65081C3A067A9A0C006247A1 /* Info.plist */; };
 		2D04EF4C0D3C10A000059707 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2D04EF4B0D3C10A000059707 /* Localizable.strings */; };
+		2D4A53AB0E6975B9000585DE /* export.scpt in AppleScript */ = {isa = PBXBuildFile; fileRef = 2D4A53AA0E6975B9000585DE /* export.scpt */; settings = {ATTRIBUTES = (Debug, ); }; };
 		65081C32067A9A0C006247A1 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C167DFE841241C02AAC07 /* InfoPlist.strings */; };
 		65081C33067A9A0C006247A1 /* main.nib in Resources */ = {isa = PBXBuildFile; fileRef = 65AABA18056A9B5C006CE269 /* main.nib */; };
 		65081C37067A9A0C006247A1 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7ADFEA557BF11CA2CBB /* Cocoa.framework */; };
@@ -34,8 +38,11 @@
 		089C167EFE841241C02AAC07 /* English */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		089C167FFE841241C02AAC07 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
 		1058C7ADFEA557BF11CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
+		2D03073B0E69E4C100D0D02B /* iconLarge.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = iconLarge.tiff; sourceTree = "<group>"; };
+		2D03073C0E69E4C100D0D02B /* icon.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = icon.tiff; sourceTree = "<group>"; };
 		2D04EF470D3C107500059707 /* English */ = {isa = PBXFileReference; explicitFileType = text.plist.strings; fileEncoding = 4; name = English; path = English.lproj/Localizable.strings; sourceTree = "<group>"; };
 		2D04EF4D0D3C10A800059707 /* German */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = German; path = German.lproj/Localizable.strings; sourceTree = "<group>"; };
+		2D4A53AA0E6975B9000585DE /* export.scpt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.scpt; path = export.scpt; sourceTree = "<group>"; };
 		2D55F86A0D2DAA5A00E9A2EC /* German */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = German; path = German.lproj/main.nib; sourceTree = "<group>"; };
 		2D55F86D0D2DAD1300E9A2EC /* German */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = German; path = German.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		65081C3A067A9A0C006247A1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -84,6 +91,8 @@
 		089C167CFE841241C02AAC07 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				2D03073B0E69E4C100D0D02B /* iconLarge.tiff */,
+				2D03073C0E69E4C100D0D02B /* icon.tiff */,
 				65AABA18056A9B5C006CE269 /* main.nib */,
 				089C167DFE841241C02AAC07 /* InfoPlist.strings */,
 				6578AEF2078DDFFD004A0FC7 /* AppleScriptKit.sdef */,
@@ -129,6 +138,7 @@
 			isa = PBXGroup;
 			children = (
 				65E2187306F52A5F00613B9C /* main.applescript */,
+				2D4A53AA0E6975B9000585DE /* export.scpt */,
 			);
 			name = Scripts;
 			sourceTree = "<group>";
@@ -194,6 +204,8 @@
 				65081C33067A9A0C006247A1 /* main.nib in Resources */,
 				2D04EEBC0D3C00E900059707 /* Info.plist in Resources */,
 				2D04EF4C0D3C10A000059707 /* Localizable.strings in Resources */,
+				2D03073D0E69E4C100D0D02B /* iconLarge.tiff in Resources */,
+				2D03073E0E69E4C100D0D02B /* icon.tiff in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

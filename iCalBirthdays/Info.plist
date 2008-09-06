@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
 	<key>AMAccepts</key>
@@ -7,7 +7,7 @@
 		<key>Container</key>
 		<string>List</string>
 		<key>Optional</key>
-		<false/>
+		<true/>
 		<key>Types</key>
 		<array>
 			<string>com.apple.applescript.object</string>
@@ -25,34 +25,46 @@
 	<dict>
 		<key>ipt_iCalCalendarName</key>
 		<string>my birthdays</string>
+		<key>ddn_eventType</key>
+		<string>0</string>
+		<key>ddn_alertType</key>
+		<string>0</string>
 		<key>ddn_alertTime_hour</key>
 		<integer>4</integer>
 		<key>ddn_alertTime_minute</key>
 		<integer>0</integer>
 		<key>ddn_alertTime_part</key>
 		<integer>1</integer>
-		<key>spr_additionalAlert</key>
+		<key>ddn_alarm</key>
+		<string>1</string>
+		<key>ddn_alert_format</key>
 		<integer>0</integer>
-		<key>ddn_additionalAlert_interval</key>
-		<integer>0</integer>
-		<key>ddn_alertType</key>
+		<key>ipt_alert_format</key>
+		<string></string>
+		<key>spr_reminder</key>
 		<string>0</string>
-		<key>ddn_format</key>
-		<integer>0</integer>
+		<key>ddn_reminder_interval</key>
+		<string>0</string>
+		<key>ddn_reminder_format</key>
+		<string>0</string>
+		<key>ipt_reminder_format</key>
+		<string></string>
 		<key>cbx_url</key>
 		<true/>
+		<key>cbx_export</key>
+		<false/>
 	</dict>
 	<key>AMDescription</key>
 	<dict>
 		<key>AMDAlert</key>
 		<string>All entries of the calendar will be deleted.</string>
 		<key>AMDResult</key>
-		<string>Exports the birthday calendar to a file and returns the reference to the file.</string>
+		<string>Optionally exports the birthday calendar to a file and returns the reference to the file.</string>
 		<key>AMDSummary</key>
 		<string>Creates a birthday calendar in iCal from the contacts in Address Book and adds an alarm.</string>
 	</dict>
 	<key>AMIconName</key>
-	<string></string>
+	<string>icon</string>
 	<key>AMKeywords</key>
 	<array/>
 	<key>AMName</key>
@@ -75,7 +87,7 @@
 		<key>ApplyButton</key>
 		<string>(* Button label for user to add proposed Action, e.g. Add. *)</string>
 		<key>IgnoreButton</key>
-		<string>(* Button label for user not to add proposed Action, e.g. Don't Add. *)</string>
+		<string>(* Button label for user not to add proposed Action, e.g. Don&apos;t Add. *)</string>
 		<key>Level</key>
 		<integer>0</integer>
 		<key>Message</key>
@@ -86,7 +98,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>English</string>
 	<key>CFBundleGetInfoString</key>
-	<string>iCalBirthdays version 1.5, Copyright (c) 2008, thatswinnie.</string>
+	<string>iCalBirthdays version 1.6, Copyright (c) 2008, thatswinnie.</string>
 	<key>CFBundleIconFile</key>
 	<string></string>
 	<key>CFBundleIdentifier</key>
@@ -96,11 +108,11 @@
 	<key>CFBundlePackageType</key>
 	<string>BNDL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.5</string>
+	<string>1.6</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>1.5</string>
+	<string>1.6</string>
 	<key>NSPrincipalClass</key>
 	<string>AMAppleScriptAction</string>
 </dict>
