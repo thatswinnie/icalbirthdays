@@ -8,6 +8,7 @@
 			65081C2D067A9A0C006247A1 /* iCalBirthdays */,
 		);
 		breakpoints = (
+			2DDDFD3F0F2282530050397E /* main.applescript:249 */,
 		);
 		codeSenseManager = 658A2DD0067AB96600421F51 /* Code sense */;
 		executables = (
@@ -36,12 +37,26 @@
 					PBXBreakpointsDataSource_ContinueID,
 				);
 			};
+			PBXConfiguration.PBXFileTableDataSource3.PBXExecutablesDataSource = {
+				PBXFileTableDataSourceColumnSortingDirectionKey = "-1";
+				PBXFileTableDataSourceColumnSortingKey = PBXExecutablesDataSource_NameID;
+				PBXFileTableDataSourceColumnWidthsKey = (
+					22,
+					300,
+					721,
+				);
+				PBXFileTableDataSourceColumnsKey = (
+					PBXExecutablesDataSource_ActiveFlagID,
+					PBXExecutablesDataSource_NameID,
+					PBXExecutablesDataSource_CommentsID,
+				);
+			};
 			PBXConfiguration.PBXFileTableDataSource3.PBXFileTableDataSource = {
 				PBXFileTableDataSourceColumnSortingDirectionKey = "-1";
 				PBXFileTableDataSourceColumnSortingKey = PBXFileDataSource_Filename_ColumnID;
 				PBXFileTableDataSourceColumnWidthsKey = (
 					20,
-					243,
+					833,
 					20,
 					48,
 					43,
@@ -58,8 +73,8 @@
 					PBXFileDataSource_Target_ColumnID,
 				);
 			};
-			PBXPerProjectTemplateStateSaveDate = 242429401;
-			PBXWorkspaceStateSaveDate = 242429401;
+			PBXPerProjectTemplateStateSaveDate = 253979794;
+			PBXWorkspaceStateSaveDate = 253979794;
 		};
 		sourceControlManager = 658A2DCF067AB96600421F51 /* Source Control */;
 		userBuildSettings = {
@@ -67,9 +82,10 @@
 	};
 	089C167EFE841241C02AAC07 /* English */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {691, 430}}";
-			sepNavSelRange = "{396, 126}";
+			sepNavIntBoundsRect = "{{0, 0}, {705, 429}}";
+			sepNavSelRange = "{95, 0}";
 			sepNavVisRange = "{0, 1173}";
+			sepNavVisRect = "{{0, 0}, {705, 429}}";
 			sepNavWindowFrame = "{{390, 52}, {750, 558}}";
 		};
 	};
@@ -91,21 +107,38 @@
 	};
 	2D55F86D0D2DAD1300E9A2EC /* German */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {929, 585}}";
-			sepNavSelRange = "{529, 0}";
+			sepNavIntBoundsRect = "{{0, 0}, {943, 607}}";
+			sepNavSelRange = "{95, 0}";
 			sepNavVisRange = "{0, 1210}";
+			sepNavVisRect = "{{0, 0}, {943, 607}}";
 			sepNavWindowFrame = "{{304, 32}, {988, 736}}";
 		};
+	};
+	2DDDFD3F0F2282530050397E /* main.applescript:249 */ = {
+		isa = PBXFileBreakpoint;
+		actions = (
+		);
+		breakpointStyle = 0;
+		continueAfterActions = 0;
+		countType = 0;
+		delayBeforeContinue = 0;
+		fileReference = 65E2187306F52A5F00613B9C /* main.applescript */;
+		functionName = "on run {input, parameters}";
+		hitCount = 0;
+		ignoreCount = 0;
+		lineNumber = 249;
+		modificationTime = 253919947.283679;
+		state = 2;
 	};
 	65081C2D067A9A0C006247A1 /* iCalBirthdays */ = {
 		activeExec = 0;
 	};
 	65081C3A067A9A0C006247A1 /* Info.plist */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {782, 1582}}";
-			sepNavSelRange = "{619, 20}";
+			sepNavIntBoundsRect = "{{0, 0}, {962, 1680}}";
+			sepNavSelRange = "{3229, 0}";
 			sepNavVisRange = "{257, 835}";
-			sepNavVisRect = "{{0, 0}, {1062, 509}}";
+			sepNavVisRect = "{{0, 1198}, {796, 482}}";
 			sepNavWindowFrame = "{{350, 20}, {841, 611}}";
 		};
 	};
@@ -183,11 +216,11 @@
 	};
 	65E2187306F52A5F00613B9C /* main.applescript */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1519, 4455}}";
-			sepNavSelRange = "{11637, 0}";
-			sepNavVisRange = "{4324, 1941}";
+			sepNavIntBoundsRect = "{{0, 0}, {1148, 4538}}";
+			sepNavSelRange = "{12260, 0}";
+			sepNavVisRange = "{9164, 1536}";
 			sepNavVisRect = "{{0, 3790}, {913, 665}}";
-			sepNavWindowFrame = "{{1581, -200}, {958, 794}}";
+			sepNavWindowFrame = "{{37, 4}, {958, 774}}";
 		};
 	};
 }

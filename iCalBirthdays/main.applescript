@@ -62,7 +62,12 @@ on createiCalEventReminder(this_calendar, this_event, reminderAlert, alert_type_
 				
 				if this_alert_reminder_text is equal to this_alert_text then
 					-- adding alarm to the event
-					set next_additional_birthday to alert_time - next_additional_birthday
+					if event_type_index is 0 then
+						set next_additional_birthday to alert_time - next_additional_birthday
+					else
+						set next_additional_birthday to -next_additional_birthday
+					end if
+					
 					my createAlarm(alarm, this_calendar, this_event, next_additional_birthday)
 				else
 					-- make an additional event
@@ -158,8 +163,11 @@ on run {input, parameters}
 	
 	-- switch the alertTime-Part-Index for fixing the AM/PM 12 o'clock-bug
 	if ((alert_time_hour_index + 1) is 12 and alert_time_part_index is 0) then
-		set alert_time_part_index to 1
+		-- 12 am = 0:00 (midnight)
+		set alert_time_part_index to 0
+		set alert_time_hour_index to -1
 	else if ((alert_time_hour_index + 1) is 12 and alert_time_part_index is 1) then
+		-- 12 pm = 12:00 (noon)
 		set alert_time_part_index to 0
 	end if
 	set alert_time to (alert_time_hour_index + 1) * 60 + alert_time_minute_index * 15 + alert_time_part_index * 720
@@ -216,12 +224,15 @@ on run {input, parameters}
 					set this_firstname to the first name of this_person as string
 					set this_lastname to the last name of this_person as string
 					
-					if this_firstname = "missing value" then
-						set this_firstname to this_name
-					end if
-					
-					if this_lastname = "missing value" then
-						set this_lastname to this_name
+					if this_firstname = "missing value" and this_lastname = "missing value" then
+						set this_firstname to ""
+						set this_lastname to ""
+					else if this_firstname = "missing value" then
+						set this_firstname to ""
+					else if this_lastname = "missing value" then
+						set this_lastname to ""
+					else
+						set this_name to this_firstname & " " & this_lastname
 					end if
 					
 					set this_ID to the id of this_person
@@ -233,8 +244,15 @@ on run {input, parameters}
 					-- calculate date of next birthday
 					copy real_birthday to next_birthday
 					tell next_birthday to set its year to (year of today)
-					tell next_birthday to set its time to alert_time * 60 -- set event time
-					if next_birthday < today then tell next_birthday to set its year to ((year of today) + 1)
+					
+					if event_type_index is not 0 then
+						tell next_birthday to set its time to alert_time * 60 -- set event time
+					end if
+					
+					-- set todays date at 12 am (midnight) so that todays birthdays are shown
+					set this_day to today
+					tell this_day to set its time to 0
+					if next_birthday < this_day then tell next_birthday to set its year to ((year of today) + 1)
 					
 					-- calculate age
 					set age to ((year of next_birthday) - (year of real_birthday))
@@ -283,7 +301,7 @@ on run {input, parameters}
 			set output to exportScriptFile's export(calendar_name)
 		end if
 		
-		tell application "iCal" to quit
+		--tell application "iCal" to quit
 		tell application "Address Book" to quit
 		
 		-- display error
