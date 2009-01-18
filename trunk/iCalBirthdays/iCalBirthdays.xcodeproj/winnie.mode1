@@ -185,48 +185,7 @@
 	<key>Notifications</key>
 	<array/>
 	<key>OpenEditors</key>
-	<array>
-		<dict>
-			<key>Content</key>
-			<dict>
-				<key>PBXProjectModuleGUID</key>
-				<string>2D272DFE0E73295500F2BC36</string>
-				<key>PBXProjectModuleLabel</key>
-				<string>main.applescript</string>
-				<key>PBXSplitModuleInNavigatorKey</key>
-				<dict>
-					<key>Split0</key>
-					<dict>
-						<key>PBXProjectModuleGUID</key>
-						<string>2D272DFF0E73295500F2BC36</string>
-						<key>PBXProjectModuleLabel</key>
-						<string>main.applescript</string>
-						<key>_historyCapacity</key>
-						<integer>0</integer>
-						<key>bookmark</key>
-						<string>2DF0F1DB0E73298300B6977F</string>
-						<key>history</key>
-						<array>
-							<string>2D272E000E73295500F2BC36</string>
-						</array>
-					</dict>
-					<key>SplitCount</key>
-					<string>1</string>
-				</dict>
-				<key>StatusBarVisibility</key>
-				<true/>
-			</dict>
-			<key>Geometry</key>
-			<dict>
-				<key>Frame</key>
-				<string>{{0, 20}, {958, 697}}</string>
-				<key>PBXModuleWindowStatusBarHidden2</key>
-				<false/>
-				<key>RubberWindowFrame</key>
-				<string>1581 -144 958 738 1280 -224 1280 1024 </string>
-			</dict>
-		</dict>
-	</array>
+	<array/>
 	<key>PerspectiveWidths</key>
 	<array>
 		<integer>-1</integer>
@@ -260,8 +219,6 @@
 			<key>Layout</key>
 			<array>
 				<dict>
-					<key>BecomeActive</key>
-					<true/>
 					<key>ContentConfiguration</key>
 					<dict>
 						<key>PBXBottomSmartGroupGIDs</key>
@@ -326,7 +283,7 @@
 							<real>186</real>
 						</array>
 						<key>RubberWindowFrame</key>
-						<string>542 143 690 397 0 0 1280 778 </string>
+						<string>549 163 690 397 0 0 1280 778 </string>
 					</dict>
 					<key>Module</key>
 					<string>PBXSmartGroupTreeModule</string>
@@ -363,7 +320,7 @@
 								<key>Frame</key>
 								<string>{{0, 0}, {482, 0}}</string>
 								<key>RubberWindowFrame</key>
-								<string>542 143 690 397 0 0 1280 778 </string>
+								<string>549 163 690 397 0 0 1280 778 </string>
 							</dict>
 							<key>Module</key>
 							<string>PBXNavigatorGroup</string>
@@ -371,6 +328,8 @@
 							<string>0pt</string>
 						</dict>
 						<dict>
+							<key>BecomeActive</key>
+							<true/>
 							<key>ContentConfiguration</key>
 							<dict>
 								<key>PBXProjectModuleGUID</key>
@@ -383,7 +342,7 @@
 								<key>Frame</key>
 								<string>{{0, 5}, {482, 351}}</string>
 								<key>RubberWindowFrame</key>
-								<string>542 143 690 397 0 0 1280 778 </string>
+								<string>549 163 690 397 0 0 1280 778 </string>
 							</dict>
 							<key>Module</key>
 							<string>XCDetailModule</string>
@@ -407,9 +366,9 @@
 			</array>
 			<key>TableOfContents</key>
 			<array>
-				<string>2DF0F1D80E73298300B6977F</string>
+				<string>2D8ADFFC0F23688E00CE76F2</string>
 				<string>1CE0B1FE06471DED0097A5F4</string>
-				<string>2DF0F1D90E73298300B6977F</string>
+				<string>2D8ADFFD0F23688E00CE76F2</string>
 				<string>1CE0B20306471E060097A5F4</string>
 				<string>1CE0B20506471E060097A5F4</string>
 			</array>
@@ -544,11 +503,11 @@
 	<key>WindowOrderList</key>
 	<array>
 		<string>1C0AD2B3069F1EA900FABCE6</string>
+		<string>2DAE54140CCA745B00DD8B87</string>
 		<string>/Volumes/data/programming/Apple/AppleScript/icalbirthdays/iCalBirthdays/iCalBirthdays.xcodeproj</string>
-		<string>2D272DFE0E73295500F2BC36</string>
 	</array>
 	<key>WindowString</key>
-	<string>542 143 690 397 0 0 1280 778 </string>
+	<string>549 163 690 397 0 0 1280 778 </string>
 	<key>WindowTools</key>
 	<array>
 		<dict>
@@ -625,7 +584,7 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>2DAE54140CCA745B00DD8B87</string>
-				<string>2D272E010E73295500F2BC36</string>
+				<string>2D8ADFFE0F23688E00CE76F2</string>
 				<string>1CD0528F0623707200166675</string>
 				<string>XCMainBuildResultsModuleGUID</string>
 			</array>
@@ -995,9 +954,9 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>1C0AD2B3069F1EA900FABCE6</string>
-				<string>2DF0F1D40E73297300B6977F</string>
+				<string>2D8ADFFF0F23688E00CE76F2</string>
 				<string>1CD0528B0623707200166675</string>
-				<string>2DF0F1D50E73297300B6977F</string>
+				<string>2D8AE0000F23688E00CE76F2</string>
 			</array>
 			<key>ToolbarConfiguration</key>
 			<string>xcode.toolbar.config.run</string>
