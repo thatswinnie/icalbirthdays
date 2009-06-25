@@ -1,3 +1,4 @@
+#labels Featured
 = FAQ =
 
 == Why do the birthday entries in iCal start on the day I started the iCalBirthdays Automator action? ==
