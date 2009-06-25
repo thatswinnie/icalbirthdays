@@ -1,5 +1,3 @@
 #labels Featured
-= FAQ =
-
 == Why do the birthday entries in iCal start on the day I started the iCalBirthdays Automator action? ==
 There seems to be a bug in AppleScript or iCal which doesn't allow to create reoccuring events in the past. Or at least iCal always crashed when I tried to this with my Automator action and thousands of calendar entries where created. That's why the iCalBirthdays Automator action only creates events for the future.
