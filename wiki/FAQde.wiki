@@ -1,0 +1,6 @@
+#labels Featured
+= FAQ =
+
+== Warum beginnen die Geburtstagseinträge erst an dem Tag, an dem ich die iCalBirthdays Automator-Action habe laufen lassen? ==
+
+Es scheint einen Fehler in AppleScript oder iCal zu geben, der es nicht erlaubt sich wiederholenden Termine in der Vergangenheit einstellen. Oder zumindest stürzt bei mir jedesmal iCal ab und erstellt tausendmal die gleichen Einträge, wenn ich das mit meiner Automator-Action probiere. Deshalb erstellt die iCalBirthdays Automator-Action nur Termine in der Zukunft.
