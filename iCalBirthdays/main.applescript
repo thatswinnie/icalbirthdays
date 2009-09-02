@@ -98,7 +98,7 @@ on createAlarm(alarmIndex, thisCalendar, thisEvent, trigger)
 end createAlarm
 
 
-on getAlertText(fieldName, alertFormatTxt, fullname, firstname, lastname, age, realBirthday, nextBirthday)
+on getAlertText(fieldName, alertFormatTxt, fullname, firstname, lastname, age, realBirthday, nextBirthday, contact)
 	if fieldName is 0 then
 		set alert_text to (fullname)
 	else if fieldName is 1 then
@@ -128,6 +128,12 @@ on getAlertText(fieldName, alertFormatTxt, fullname, firstname, lastname, age, r
 		set alert_text to my replaceText("%yearofbirth%", year of realBirthday as string, alert_text)
 		set alert_text to my replaceText("%age%", age as string, alert_text)
 		set alert_text to my replaceText("%birthday%", short date string of realBirthday, alert_text)
+		
+		tell application "Address Book"
+			tell me to log "name: " & firstname & " " & lastname
+			tell me to log "phone: " & the phone of contact as string
+			set alert_text to my replaceText("%tel%", the phone of contact as string, alert_text)
+		end tell
 	else
 		set alert_text to (fullname & my localized_string("'s birthday"))
 	end if
@@ -186,120 +192,129 @@ on run {input, parameters}
 			set nodesPlist to icalSupportFolder & "nodes.plist"
 		end if
 		
-		tell application "Address Book"
-			-- get all people with birthday from address book
-			set the birthday_people to every person whose birth date is not missing value
-			if the birthday_people is {} then error error_01
-		end tell
-		
-		tell application "iCal"
-			activate
-			
-			if (exists calendar the calendar_name) then
-				-- set calendar name
-				set this_calendar to (the first calendar whose title is the calendar_name)
-				
-				-- delete old entries from calendar
-				delete every event of this_calendar
-			else
-				make new calendar with properties {name:calendar_name}
-				
-				-- set calendar name
-				set this_calendar to (the first calendar whose title is the calendar_name)
-				set newCal to true
-			end if
-			
-			set the people_count to the count of birthday_people
-			
-			-- run through all people
-			repeat with i from 1 to the people_count
-				set this_increment to (i / the people_count) as small real
-				set progression to this_increment
-				
-				tell application "Address Book"
-					-- get all information about person, birthday, etc.
-					set this_person to item i of birthday_people
-					set real_birthday to the birth date of this_person
-					set this_name to the name of this_person
-					set this_firstname to the first name of this_person as string
-					set this_lastname to the last name of this_person as string
-					
-					if this_firstname = "missing value" and this_lastname = "missing value" then
-						set this_firstname to ""
-						set this_lastname to ""
-					else if this_firstname = "missing value" then
-						set this_firstname to ""
-					else if this_lastname = "missing value" then
-						set this_lastname to ""
-					else
-						set this_name to this_firstname & " " & this_lastname
-					end if
-					
-					set this_ID to the id of this_person
-					set this_URL to ("addressbook://" & this_ID)
-					set the numeric_month to the month of the real_birthday as integer
-					set the repeat_string to "FREQ=YEARLY;INTERVAL=1;BYMONTH=" & (numeric_month as string)
-					set this_day to the day of the real_birthday as string
-					
-					-- calculate date of next birthday
-					copy real_birthday to next_birthday
-					tell next_birthday to set its year to (year of today)
-					
-					if event_type_index is not 0 then
-						tell next_birthday to set its time to alert_time * 60 -- set event time
-					end if
-					
-					-- set todays date at 12 am (midnight) so that todays birthdays are shown
-					set this_day to today
-					tell this_day to set its time to 0
-					if next_birthday < this_day then tell next_birthday to set its year to ((year of today) + 1)
-					
-					-- calculate age
-					set age to ((year of next_birthday) - (year of real_birthday))
-					
-					-- set alert text
-					set this_alert_text to my getAlertText(alert_showFormat_index, alert_showFormat_txt, this_name, this_firstname, this_lastname, age, real_birthday, next_birthday)
-				end tell
-				
-				-- create calendar event
-				tell this_calendar
-					set eventProperties to {start date:next_birthday, summary:(this_alert_text), recurrence:repeat_string, status:confirmed}
-					
-					if showURL is true then
-						set eventProperties to (eventProperties & {url:this_URL})
-					end if
-					
-					-- set eventType (allday or at event)
-					if event_type_index is 0 then
-						set eventProperties to (eventProperties & {allday event:true})
-					else
-						set eventProperties to (eventProperties & {allday event:false})
-					end if
-					
-					-- create event
-					set this_event to my createiCalEvent(this_calendar, eventProperties, event_type_index, alert_type_index, alert_time, alert_alarm_index)
-					
-					-- create reminder
-					if reminderAlert > 0 and alert_type_index > 0 then
-						set this_alert_reminder_text to my getAlertText(reminder_showFormat_index, reminder_showFormat_txt, this_name, this_firstname, this_lastname, age, real_birthday, next_birthday)
-					else
-						set this_alert_reminder_text to ""
-					end if
-					my createiCalEventReminder(this_calendar, this_event, reminderAlert, alert_type_index, reminderAlert_interval_index, alert_time, this_alert_reminder_text, this_alert_text, eventProperties, event_type_index, alert_alarm_index)
-				end tell
-			end repeat
-			set my_uid to uid of this_calendar
-		end tell
-		
-		-- export calender
-		if exportCal is true then
-			tell application "Finder"
-				set theFolder to (container of item (path to me)) as string
+		-- set timeout
+		with timeout of 600 seconds --ten minutes
+			tell application "Address Book"
+				-- get all people with birthday from address book
+				set the birthday_people to every person
+				--set the birthday_people to every person whose birth date is not missing value
+				if the birthday_people is {} then error error_01
 			end tell
 			
-			set exportScriptFile to load script file (theFolder & "export.scpt")
-			set output to exportScriptFile's export(calendar_name)
-		end if
+			tell application "iCal"
+				activate
+				
+				if (exists calendar the calendar_name) then
+					-- set calendar name
+					set this_calendar to (the first calendar whose title is the calendar_name)
+					
+					-- delete old entries from calendar
+					delete every event of this_calendar
+				else
+					make new calendar with properties {name:calendar_name}
+					
+					-- set calendar name
+					set this_calendar to (the first calendar whose title is the calendar_name)
+					set newCal to true
+				end if
+				
+				set the people_count to the count of birthday_people
+				
+				-- run through all people
+				repeat with i from 1 to the people_count
+					set this_increment to (i / the people_count) as small real
+					set progression to this_increment
+					
+					tell application "Address Book"
+						-- get all information about person, birthday, etc.
+						set this_person to item i of birthday_people
+						set real_birthday to the birth date of this_person
+						set this_name to the name of this_person
+						set this_firstname to the first name of this_person as string
+						set this_lastname to the last name of this_person as string
+						
+						if real_birthday is not missing value then
+							if this_firstname = "missing value" and this_lastname = "missing value" then
+								set this_firstname to ""
+								set this_lastname to ""
+							else if this_firstname = "missing value" then
+								set this_firstname to ""
+							else if this_lastname = "missing value" then
+								set this_lastname to ""
+							else
+								set this_name to this_firstname & " " & this_lastname
+							end if
+							
+							set this_ID to the id of this_person
+							set this_URL to ("addressbook://" & this_ID)
+							set the numeric_month to the month of the real_birthday as integer
+							set the repeat_string to "FREQ=YEARLY;INTERVAL=1;BYMONTH=" & (numeric_month as string)
+							set this_day to the day of the real_birthday as string
+							
+							-- calculate date of next birthday
+							copy real_birthday to next_birthday
+							tell next_birthday to set its year to (year of today)
+							
+							if event_type_index is not 0 then
+								tell next_birthday to set its time to alert_time * 60 -- set event time
+							end if
+							
+							-- set todays date at 12 am (midnight) so that todays birthdays are shown
+							set this_day to today
+							tell this_day to set its time to 0
+							if next_birthday < this_day then tell next_birthday to set its year to ((year of today) + 1)
+							
+							-- calculate age
+							set age to ((year of next_birthday) - (year of real_birthday))
+							
+							-- set alert text
+							set this_alert_text to my getAlertText(alert_showFormat_index, alert_showFormat_txt, this_name, this_firstname, this_lastname, age, real_birthday, next_birthday, this_person)
+						end if
+					end tell
+					
+					
+					if real_birthday is not missing value then
+						-- create calendar event
+						tell this_calendar
+							set eventProperties to {start date:next_birthday, summary:(this_alert_text), recurrence:repeat_string, status:confirmed}
+							
+							if showURL is true then
+								set eventProperties to (eventProperties & {url:this_URL})
+							end if
+							
+							-- set eventType (allday or at event)
+							if event_type_index is 0 then
+								set eventProperties to (eventProperties & {allday event:true})
+							else
+								set eventProperties to (eventProperties & {allday event:false})
+							end if
+							
+							-- create event
+							set this_event to my createiCalEvent(this_calendar, eventProperties, event_type_index, alert_type_index, alert_time, alert_alarm_index)
+							
+							-- create reminder
+							if reminderAlert > 0 and alert_type_index > 0 then
+								set this_alert_reminder_text to my getAlertText(reminder_showFormat_index, reminder_showFormat_txt, this_name, this_firstname, this_lastname, age, real_birthday, next_birthday, this_person)
+							else
+								set this_alert_reminder_text to ""
+							end if
+							my createiCalEventReminder(this_calendar, this_event, reminderAlert, alert_type_index, reminderAlert_interval_index, alert_time, this_alert_reminder_text, this_alert_text, eventProperties, event_type_index, alert_alarm_index)
+						end tell
+					end if
+				end repeat
+				set my_uid to uid of this_calendar
+			end tell
+			
+			-- export calender
+			if exportCal is true then
+				tell application "Finder"
+					set theFolder to (container of item (path to me)) as string
+				end tell
+				
+				set exportScriptFile to load script file (theFolder & "export.scpt")
+				set output to exportScriptFile's export(calendar_name)
+			end if
+		end timeout
 		
 		--tell application "iCal" to quit
 		tell application "Address Book" to quit
