@@ -1,14 +1,15 @@
 // !$*UTF8*$!
 {
 	089C1669FE841209C02AAC07 /* Project object */ = {
-		activeBuildConfigurationName = Release;
+		activeBuildConfigurationName = Debug;
 		activeExecutable = 658A2E03067AB99300421F51 /* Automator */;
 		activeTarget = 65081C2D067A9A0C006247A1 /* iCalBirthdays */;
 		addToTargets = (
 			65081C2D067A9A0C006247A1 /* iCalBirthdays */,
 		);
 		breakpoints = (
-			2DDDFD3F0F2282530050397E /* main.applescript:249 */,
+			2DDDFD3F0F2282530050397E /* main.applescript:194 */,
+			2D77A8D70FB655D20026011D /* main.applescript:130 */,
 		);
 		codeSenseManager = 658A2DD0067AB96600421F51 /* Code sense */;
 		executables = (
@@ -73,8 +74,12 @@
 					PBXFileDataSource_Target_ColumnID,
 				);
 			};
-			PBXPerProjectTemplateStateSaveDate = 253979794;
-			PBXWorkspaceStateSaveDate = 253979794;
+			PBXPerProjectTemplateStateSaveDate = 271794934;
+			PBXWorkspaceStateSaveDate = 271794934;
+		};
+		perUserProjectItems = {
+			2D20E0B2103344A20036396A /* PBXTextBookmark */ = 2D20E0B2103344A20036396A /* PBXTextBookmark */;
+			2D77A8E40FB6E3A70026011D /* PBXTextBookmark */ = 2D77A8E40FB6E3A70026011D /* PBXTextBookmark */;
 		};
 		sourceControlManager = 658A2DCF067AB96600421F51 /* Source Control */;
 		userBuildSettings = {
@@ -105,6 +110,16 @@
 			sepNavWindowFrame = "{{529, 298}, {615, 458}}";
 		};
 	};
+	2D20E0B2103344A20036396A /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 65E2187306F52A5F00613B9C /* main.applescript */;
+		name = "main.applescript: 35";
+		rLen = 11;
+		rLoc = 1017;
+		rType = 0;
+		vrLen = 1331;
+		vrLoc = 469;
+	};
 	2D55F86D0D2DAD1300E9A2EC /* German */ = {
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {943, 607}}";
@@ -114,7 +129,33 @@
 			sepNavWindowFrame = "{{304, 32}, {988, 736}}";
 		};
 	};
-	2DDDFD3F0F2282530050397E /* main.applescript:249 */ = {
+	2D77A8D70FB655D20026011D /* main.applescript:130 */ = {
+		isa = PBXFileBreakpoint;
+		actions = (
+		);
+		breakpointStyle = 0;
+		continueAfterActions = 0;
+		countType = 0;
+		delayBeforeContinue = 0;
+		fileReference = 65E2187306F52A5F00613B9C /* main.applescript */;
+		functionName = "on getAlertText(fieldName, alertFormatTxt, fullname, firstname, lastname, age, realBirthday, nextBirthday, contact)";
+		hitCount = 0;
+		ignoreCount = 0;
+		lineNumber = 130;
+		modificationTime = 263607971.924012;
+		state = 2;
+	};
+	2D77A8E40FB6E3A70026011D /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 65E2187306F52A5F00613B9C /* main.applescript */;
+		name = "main.applescript: 324";
+		rLen = 0;
+		rLoc = 12738;
+		rType = 0;
+		vrLen = 1726;
+		vrLoc = 4191;
+	};
+	2DDDFD3F0F2282530050397E /* main.applescript:194 */ = {
 		isa = PBXFileBreakpoint;
 		actions = (
 		);
@@ -126,8 +167,8 @@
 		functionName = "on run {input, parameters}";
 		hitCount = 0;
 		ignoreCount = 0;
-		lineNumber = 249;
-		modificationTime = 253919947.283679;
+		lineNumber = 194;
+		modificationTime = 263607930.815548;
 		state = 2;
 	};
 	65081C2D067A9A0C006247A1 /* iCalBirthdays */ = {
@@ -216,9 +257,9 @@
 	};
 	65E2187306F52A5F00613B9C /* main.applescript */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1148, 4538}}";
-			sepNavSelRange = "{12260, 0}";
-			sepNavVisRange = "{9164, 1536}";
+			sepNavIntBoundsRect = "{{0, 0}, {1548, 4706}}";
+			sepNavSelRange = "{1017, 11}";
+			sepNavVisRange = "{469, 1331}";
 			sepNavVisRect = "{{0, 3790}, {913, 665}}";
 			sepNavWindowFrame = "{{37, 4}, {958, 774}}";
 		};
