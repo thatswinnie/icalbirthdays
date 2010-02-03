@@ -26,6 +26,8 @@
 		018C8CDF1114FB2D00B222AF /* CalendarStore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 018C8CDE1114FB2D00B222AF /* CalendarStore.framework */; };
 		018C8CE11114FB5000B222AF /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 018C8CE01114FB5000B222AF /* AddressBook.framework */; };
 		018C8EA11115B96F00B222AF /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 018C8E9F1115B96F00B222AF /* Localizable.strings */; };
+		01E14BFA111A1E2A00031C2A /* icon.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 01E14BF8111A1E2A00031C2A /* icon.tiff */; };
+		01E14BFB111A1E2A00031C2A /* iconLarge.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 01E14BF9111A1E2A00031C2A /* iconLarge.tiff */; };
 		60E1E08C0DB55F8700B0848E /* main.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60E1E08A0DB55F8700B0848E /* main.xib */; };
 		650E79E2067AB5AE00B4A4EC /* Automator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 650E79E1067AB5AE00B4A4EC /* Automator.framework */; };
 		65181752067A8D39005BD953 /* iCalBirthdays.m in Sources */ = {isa = PBXBuildFile; fileRef = 65181750067A8D39005BD953 /* iCalBirthdays.m */; };
@@ -44,6 +46,8 @@
 		018C8EA01115B96F00B222AF /* German */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = German; path = German.lproj/Localizable.strings; sourceTree = "<group>"; };
 		018C8EA21115B97800B222AF /* English */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/Localizable.strings; sourceTree = "<group>"; };
 		018C8EA71115B99800B222AF /* German */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = German; path = German.lproj/main.xib; sourceTree = "<group>"; };
+		01E14BF8111A1E2A00031C2A /* icon.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = icon.tiff; sourceTree = "<group>"; };
+		01E14BF9111A1E2A00031C2A /* iconLarge.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = iconLarge.tiff; sourceTree = "<group>"; };
 		089C1672FE841209C02AAC07 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
 		089C167EFE841241C02AAC07 /* English */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		089C167FFE841241C02AAC07 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
@@ -148,6 +152,8 @@
 		32C88E010371C26100C91783 /* Other Sources */ = {
 			isa = PBXGroup;
 			children = (
+				01E14BF8111A1E2A00031C2A /* icon.tiff */,
+				01E14BF9111A1E2A00031C2A /* iconLarge.tiff */,
 				32DBCF630370AF2F00C91783 /* iCalBirthdays_Prefix.pch */,
 			);
 			name = "Other Sources";
@@ -215,6 +221,8 @@
 				8D5B49B0048680CD000E48DA /* InfoPlist.strings in Resources */,
 				60E1E08C0DB55F8700B0848E /* main.xib in Resources */,
 				018C8EA11115B96F00B222AF /* Localizable.strings in Resources */,
+				01E14BFA111A1E2A00031C2A /* icon.tiff in Resources */,
+				01E14BFB111A1E2A00031C2A /* iconLarge.tiff in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -29,5 +29,6 @@
 - (NSString *) constructAlertTitle: (NSInteger) formatIndex customTitleText: (NSString *) customTemplate;
 - (NSString *) constructFullName;
 - (NSInteger) calculateAge;
+//- (NSDate *) nextBirthday;
 
 @end

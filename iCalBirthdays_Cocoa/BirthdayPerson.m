@@ -44,7 +44,7 @@
 		return [NSString stringWithFormat:format, [self fullName]];
 	}
 	else if (formatIndex == 2) {
-		//set alert_text to (fullname & " (" & year of realBirthday & ")")
+		return [NSString stringWithFormat:@"%@ (%i)", [self fullName], [[self valueForProperty:kABBirthdayProperty] descriptionWithCalendarFormat:@"%Y" timeZone:nil locale:[NSLocale currentLocale]]];		
 	}
 	else if (formatIndex == 3) {		
 		//set alert_text to (fullname & " (" & age & " " & my localized_string("in year") & " " & year of nextBirthday & ")")
@@ -60,7 +60,7 @@
 		return [NSString stringWithFormat:format, [self valueForProperty:kABFirstNameProperty]];
 	}
 	else if (formatIndex == 7) {
-		//set alert_text to (firstname & " (" & year of realBirthday & ")")
+		return [NSString stringWithFormat:@"%@ (%i)", [self valueForProperty:kABFirstNameProperty], [[self valueForProperty:kABBirthdayProperty] descriptionWithCalendarFormat:@"%Y" timeZone:nil locale:[NSLocale currentLocale]]];		
 	}
 	else if (formatIndex == 8) {
 		//set alert_text to (firstname & " (" & age & " " & my localized_string("in year") & " " & year of nextBirthday & ")")
@@ -78,7 +78,7 @@
 		if ([self valueForProperty:kABFirstNameProperty] != nil)
 			customAlert = [customAlert stringByReplacingOccurrencesOfString:@"%firstname%" withString: [self valueForProperty:kABFirstNameProperty]];
 		
-		customAlert = [customAlert stringByReplacingOccurrencesOfString:@"%yearofbirth%" withString: [[self valueForProperty:kABBirthdayProperty] descriptionWithCalendarFormat:@"%Y" timeZone:nil locale:nil]];
+		customAlert = [customAlert stringByReplacingOccurrencesOfString:@"%yearofbirth%" withString: [[self valueForProperty:kABBirthdayProperty] descriptionWithCalendarFormat:@"%Y" timeZone:nil locale:[NSLocale currentLocale]]];
 		customAlert = [customAlert stringByReplacingOccurrencesOfString:@"%age%" withString: [NSString stringWithFormat:@"%i", [self age]]];
 		
 		
@@ -142,5 +142,9 @@
 		return [dateComponentsNow year] - [dateComponentsBirth year];
 	}
 }
+
+//- (NSDate *) nextBirthday {
+//	
+//}
 
 @end

@@ -16,9 +16,9 @@
 {
 }
 
-- (id)runWithInput:(id)input fromAction:(AMAction *)anAction error:(NSDictionary **)errorInfo;
+- (id) runWithInput:(id)input fromAction:(AMAction *)anAction error:(NSDictionary **)errorInfo;
 
-- (NSInteger)getAlertTime;
+- (NSInteger) getAlertTime;
 
 - (NSArray *)getPeopleWithBirthday;
 
