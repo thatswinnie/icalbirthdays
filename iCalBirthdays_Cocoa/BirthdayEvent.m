@@ -20,22 +20,22 @@
 }
 
 
-- (NSDate *) constructAlertStartDate: (NSDate *) birthdayDate alertTime: (NSInteger) alertTime {
+- (NSDate *) constructEventStartDate: (NSDate *) birthdayDate alertTime: (NSInteger) alertTime {
 	if (self.isAllDay) {
 		return birthdayDate;
 	} else {
-		NSDate *alertDate = [birthdayDate copy];
+		NSDate *alertDate = [[birthdayDate copy] autorelease];
 		return [alertDate dateByAddingTimeInterval: alertTime];
 	}
 	return birthdayDate;
 }
 
 
-- (NSDate *) constructAlertEndDate: (NSDate *) birthdayDate alertTime: (NSInteger) alertTime {
+- (NSDate *) constructEventEndDate: (NSDate *) birthdayDate alertTime: (NSInteger) alertTime {
 	if (self.isAllDay) {
 		return birthdayDate;
 	} else {
-		NSDate *alertDate = [birthdayDate copy];
+		NSDate *alertDate = [[birthdayDate copy] autorelease];
 		return [alertDate dateByAddingTimeInterval: alertTime + 60 * 60];
 	}
 }

@@ -3,7 +3,7 @@
 //  iCalBirthdays
 //
 //  Created by thatswinnie on 1/25/10.
-//  Copyright (c) 2010 __MyCompanyName__, All Rights Reserved.
+//  Copyright (c) 2010 thatswinnie, All Rights Reserved.
 //
 
 #import <Cocoa/Cocoa.h>
@@ -17,9 +17,10 @@
 }
 
 - (id) runWithInput:(id)input fromAction:(AMAction *)anAction error:(NSDictionary **)errorInfo;
-
+- (NSInteger) getEventTime;
 - (NSInteger) getAlertTime;
-
-- (NSArray *)getPeopleWithBirthday;
+- (NSDictionary *) getPeopleWithBirthday;
+- (NSArray *) allEventUIDsForCalendar: (CalCalendar *)calendarObject;
+- (void) removeExistingCalendarEventsFromCalendar: (CalCalendar *)calendarObject calendarStore: (CalCalendarStore *) calendarStore;
 
 @end

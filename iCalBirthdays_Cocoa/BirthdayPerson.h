@@ -10,25 +10,33 @@
 #import <AddressBook/AddressBook.h>
 
 
-@interface BirthdayPerson : ABPerson {
+@interface BirthdayPerson : NSObject {
+	ABPerson *birthdayPerson;
 	NSString *eventTitle;
 	NSString *reminderTitle;
 	NSString *fullName;
-	NSInteger age;
+	NSInteger currentAge;
+	NSInteger nextAge;
+	NSURL *addressbookUrl;
 }
 
+@property (nonatomic, retain) ABPerson *birthdayPerson;
 @property (nonatomic, retain) NSString *eventTitle;
 @property (nonatomic, retain) NSString *reminderTitle;
 @property (nonatomic, retain) NSString *fullName;
-@property NSInteger age;
+@property NSInteger currentAge;
+@property NSInteger nextAge;
+@property (nonatomic, retain) NSURL *addressbookUrl;
 
 
-- (id) initWith: (ABPerson *) person;
+- (id) initWithABPerson: (ABPerson *) birthdayPerson;
 - (NSString *) constructEventTitle: (NSInteger) formatIndex customTitleText: (NSString *) customTemplate;
 - (NSString *) constructReminderTitle: (NSInteger) formatIndex customTitleText: (NSString *) customTemplate;
 - (NSString *) constructAlertTitle: (NSInteger) formatIndex customTitleText: (NSString *) customTemplate;
 - (NSString *) constructFullName;
-- (NSInteger) calculateAge;
-//- (NSDate *) nextBirthday;
+- (NSInteger) calculateCurrentAge;
+- (NSInteger) calculateNextAge;
+- (NSDate *) nextBirthday;
+- (NSURL *) createAddressbookUrl;
 
 @end
