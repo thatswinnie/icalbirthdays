@@ -15,8 +15,8 @@
 }
 
 - (BOOL) isAllDayEvent: (NSInteger) eventTypeIndex;
-- (NSDate *) constructAlertStartDate: (NSDate *) birthdayDate alertTime: (NSInteger) alertTime;
-- (NSDate *) constructAlertEndDate: (NSDate *) birthdayDate alertTime: (NSInteger) alertTime;
+- (NSDate *) constructEventStartDate: (NSDate *) birthdayDate alertTime: (NSInteger) alertTime;
+- (NSDate *) constructEventEndDate: (NSDate *) birthdayDate alertTime: (NSInteger) alertTime;
 - (NSInteger) constructRelativeAlertTime: (NSInteger) alertTime;
 - (CalAlarm *) createAlarm: (NSInteger) alertTime;
 

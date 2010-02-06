@@ -58,8 +58,6 @@
 	<dict>
 		<key>AMDAlert</key>
 		<string>All entries of the calendar will be deleted.</string>
-		<key>AMDResult</key>
-		<string>Optionally exports the birthday calendar to a file and returns the reference to the file.</string>
 		<key>AMDSummary</key>
 		<string>Creates a birthday calendar in iCal from the contacts in Address Book and adds an alarm.</string>
 		<key>AMDWebsite</key>

@@ -1,4 +1,10 @@
-/* Localized strings */
+/* 
+   Localizable.strings
+   iCalBirthdays
+
+   Created by Winnie on 06.02.10.
+   Copyright 2010 thatswinnie. All rights reserved.
+ */
 
 "'s birthday" = "'s Geburtstag";
 "year" = "Jahr";
