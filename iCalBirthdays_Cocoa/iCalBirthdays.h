@@ -12,15 +12,25 @@
 #import <BirthdayPerson.h>
 #import <BirthdayEvent.h>
 
-@interface iCalBirthdays : AMBundleAction 
+@interface iCalBirthdays : AMBundleAction
 {
 }
+
 
 - (id) runWithInput:(id)input fromAction:(AMAction *)anAction error:(NSDictionary **)errorInfo;
 - (NSInteger) getEventTime;
 - (NSInteger) getAlertTime;
+- (NSInteger) getReminderTime;
 - (NSDictionary *) getPeopleWithBirthday;
-- (NSArray *) allEventUIDsForCalendar: (CalCalendar *)calendarObject;
-- (void) removeExistingCalendarEventsFromCalendar: (CalCalendar *)calendarObject calendarStore: (CalCalendarStore *) calendarStore;
+- (NSDate *) getReminderDateForPerson: (id) person;
+
+- (BirthdayEvent *)createBirthdayEventForPerson:(id)person inCalendar:(CalCalendar *)calendar showAddressBookUrl:(BOOL)showUrl  calendarStore:(CalCalendarStore *)calendarStore;
+- (BirthdayEvent *)addReminderToEvent:(BirthdayEvent *)event forPerson:(id)person calendarStore:(CalCalendarStore *)calendarStore;
+- (BirthdayEvent *)createReminderEventForPerson: (id) person inCalendar: (CalCalendar *) calendar showAddressBookUrl: (BOOL) showUrl  calendarStore: (CalCalendarStore *) calendarStore;
+
+- (NSArray *)allEventUIDsForCalendar:(CalCalendar *)calendarObject;
+- (void) removeExistingCalendarEventsFromCalendar:(CalCalendar *)calendarObject calendarStore:(CalCalendarStore *)calendarStore;
+
+-(NSString *)findEmailFromMyCard;
 
 @end

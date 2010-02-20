@@ -7,6 +7,8 @@
  */
 
 "'s birthday" = "'s birthday";
+"no own card" = "ERROR: You have no own card in Address Book.";
+"no primary email on own card" = "ERROR: Your own card has no primary email address.";
 "year" = "yo";
 "years" = "yo";
 "in year" = "in year";

@@ -11,6 +11,7 @@
 
 @implementation iCalBirthdays
 
+
 - (id)runWithInput:(id)input fromAction:(AMAction *)anAction error:(NSDictionary **)errorInfo
 {
 	NSError *error;	
@@ -19,6 +20,24 @@
 	NSArray *calendars = [calendarStore calendars];
 	NSString *calendarName = [[self parameters] objectForKey:@"ipt_iCalCalendarName"];
 	BOOL showUrl = [[[self parameters] objectForKey:@"cbx_url"] boolValue];
+	NSBundle *thisBundle = [NSBundle bundleForClass:[self class]];
+	
+	// find 'me' card in address book
+	ABPerson *meCard = [[ABAddressBook sharedAddressBook] me];
+	if (meCard == nil) {
+		NSString *errorString = [thisBundle localizedStringForKey:@"no own card" value:@"ERROR: You have no own card in Address Book." table:nil];
+		*errorInfo = [NSDictionary dictionaryWithObjectsAndKeys: [errorString autorelease], NSAppleScriptErrorMessage, nil];		
+		return nil;
+	}
+	
+	// check if email exists
+	// TODO
+	if ([[[self parameters] objectForKey:@"ddn_alarm"] integerValue] == 2 && [self findEmailFromMyCard] == nil) {		
+		NSString *errorString = [thisBundle localizedStringForKey:@"no primary email on own card" value:@"ERROR: Your own card has no primary email address." table:nil];
+		*errorInfo = [NSDictionary dictionaryWithObjectsAndKeys: [errorString autorelease], NSAppleScriptErrorMessage, nil];		
+		return nil;
+	}
+	
 	
 	// look for calendar
 	for (CalCalendar *aCalendar in calendars) {
@@ -49,32 +68,17 @@
 		NSEnumerator *enumerator = [peopleWithBirthdays objectEnumerator];
 		id person;
 		
-		while ((person = [enumerator nextObject])) {		
-		//for (BirthdayPerson *person in peopleWithBirthdays) {
-			BirthdayEvent *event = [[BirthdayEvent alloc] init];
-			event.calendar = bdayCalendar;
-			event.title = [person eventTitle];
+		while ((person = [enumerator nextObject])) {
+			BirthdayEvent *event = [self createBirthdayEventForPerson:person inCalendar:bdayCalendar showAddressBookUrl:showUrl calendarStore:calendarStore];
 			
-			event.isAllDay = [event isAllDayEvent: [[[self parameters] objectForKey:@"ddn_eventType"] integerValue]];
-			event.startDate = [event constructEventStartDate: [person valueForProperty:kABBirthdayProperty] alertTime: [self getEventTime]];
-			event.endDate = [event constructEventEndDate: [person valueForProperty:kABBirthdayProperty] alertTime: [self getEventTime]];
-			
-			if (showUrl) {
-				event.url = [person addressbookUrl];
+			if ([[[self parameters] objectForKey:@"ddn_alertType"] integerValue] != 0 && [self getReminderTime] > 0) {
+				if ([[person eventTitle] isEqual:[person reminderTitle]]) {
+					[self addReminderToEvent:event forPerson:person calendarStore:calendarStore];
+				} else {
+					// create seperate event
+					[self createReminderEventForPerson:person inCalendar:bdayCalendar showAddressBookUrl:showUrl calendarStore:calendarStore];
+				}
 			}
-			
-			// recurring event
-			event.recurrenceRule = [[[CalRecurrenceRule alloc] initYearlyRecurrenceWithInterval:1 end:nil] autorelease];
-			
-			// alarm for event
-			[event addAlarm: [event createAlarm: [self getAlertTime]]];
-			
-			// Save changes to an event
-			if ([calendarStore saveEvent:event span:CalSpanThisEvent error:&error] == NO){
-				NSAlert *alertPanel = [NSAlert alertWithError:error];
-				(void) [alertPanel runModal];
-			}
-			[event release];	
 		}
 	}
 	
@@ -82,13 +86,32 @@
 }
 
 
-- (NSInteger) getEventTime {
+- (void)updateParameters
+{
+	
+}
+
+
+- (void)parametersUpdated
+{
+//	if ([[[self parameters] objectForKey:@"ddn_alertType"] integerValue] == 0) {
+//		// deactivate reminder
+//		[[self parameters] setObject:[NSNumber numberWithInt:[_interactiveType selectedRow]] forKey:@"spr_reminder"];
+//	} else {
+//		// activate reminder
+//	}
+}
+
+
+- (NSInteger) getEventTime 
+{
 	// remove half a day of time because birthday is always 12 pm = noon
 	return [self getAlertTime] - (12 * 60 * 60);
 }
 
 
-- (NSInteger) getAlertTime {
+- (NSInteger) getAlertTime 
+{
 	NSInteger alertTimeHourIndex = [[[self parameters] objectForKey:@"ddn_alertTime_hour"] integerValue];
 	NSInteger alertTimeMinuteIndex = [[[self parameters] objectForKey:@"ddn_alertTime_minute"] integerValue];
 	NSInteger alertTimePartIndex = [[[self parameters] objectForKey:@"ddn_alertTime_part"] integerValue];
@@ -106,13 +129,36 @@
 		alertTimePartIndex = 0;
 	}
 	
-	return ((alertTimeHourIndex + 1) * 60 *60) 
+	return ((alertTimeHourIndex + 1) * 60 * 60) 
 				+ (alertTimeMinuteIndex * 15 * 60)
 				+ (alertTimePartIndex * 12 * 60 * 60);
 }
 
 
-- (NSDictionary *)getPeopleWithBirthday {	
+- (NSInteger) getReminderTime 
+{
+	NSInteger reminderQuantity = [[[self parameters] objectForKey:@"spr_reminder"] integerValue];
+	NSInteger reminderIntervalIndex = [[[self parameters] objectForKey:@"ddn_reminder_interval"] integerValue];
+	
+	if (reminderIntervalIndex == 0) {
+		// days
+		return (reminderQuantity * 24 * 60 * 60);
+	} else {
+		// weeks
+		return (reminderQuantity * 7 * 24 * 60 * 60);
+	}
+}
+
+
+- (NSDate *) getReminderDateForPerson: (id) person
+{
+	NSDate *birthdayDate = [person valueForProperty:kABBirthdayProperty];	
+	return [birthdayDate dateByAddingTimeInterval: -[self getReminderTime]];
+}
+
+
+- (NSDictionary *)getPeopleWithBirthday 
+{	
 	ABSearchElement *withBirthday = [ABPerson searchElementForProperty:kABBirthdayProperty
 																 label:nil
 																   key:nil
@@ -137,6 +183,87 @@
 	
 	return birthdayPeopleDict;
 }
+
+
+
+#pragma mark Event creation
+
+- (BirthdayEvent *)createBirthdayEventForPerson: (id) person inCalendar: (CalCalendar *) calendar showAddressBookUrl: (BOOL) showUrl  calendarStore: (CalCalendarStore *) calendarStore
+{
+	NSError *error;	
+	BirthdayEvent *event = [[[BirthdayEvent alloc] init] autorelease];
+	event.calendar = calendar;
+	event.title = [person eventTitle];
+	
+	event.isAllDay = [event isAllDayEvent: [[[self parameters] objectForKey:@"ddn_eventType"] boolValue]];
+	event.startDate = [event constructEventStartDate: [person valueForProperty:kABBirthdayProperty] alertTime: [self getEventTime]];
+	event.endDate = [event constructEventEndDate: [person valueForProperty:kABBirthdayProperty] alertTime: [self getEventTime]];
+	
+	if (showUrl) {
+		event.url = [person addressbookUrl];
+	}
+	
+	// recurring event
+	event.recurrenceRule = [[[CalRecurrenceRule alloc] initYearlyRecurrenceWithInterval:1 end:nil] autorelease];
+	
+	// alarm for event
+	[event addAlarm: [event createAlarm: [self getAlertTime] alarmType: [[[self parameters] objectForKey:@"ddn_alarm"] integerValue]fromEmailAddress: [self findEmailFromMyCard]]];
+	
+	// Save changes to an event
+	if ([calendarStore saveEvent:event span:CalSpanAllEvents error:&error] == NO){
+		NSAlert *alertPanel = [NSAlert alertWithError:error];
+		(void) [alertPanel runModal];
+	}
+	return event;
+}
+
+
+- (BirthdayEvent *)addReminderToEvent: (BirthdayEvent *) event forPerson: (id) person calendarStore: (CalCalendarStore *) calendarStore
+{
+	NSError *error;
+	
+	[event addAlarm: [event createReminderAlarm: [self getReminderTime] withAlarmTime: [self getAlertTime] alarmType: [[[self parameters] objectForKey:@"ddn_alarm"] integerValue] fromEmailAddress: [self findEmailFromMyCard]]];
+	
+	// Save changes to an event
+	if ([calendarStore saveEvent:event span:CalSpanAllEvents error:&error] == NO){
+		NSAlert *alertPanel = [NSAlert alertWithError:error];
+		(void) [alertPanel runModal];
+	}
+	
+	return event;	
+}
+
+
+- (BirthdayEvent *)createReminderEventForPerson: (id) person inCalendar: (CalCalendar *) calendar showAddressBookUrl: (BOOL) showUrl  calendarStore: (CalCalendarStore *) calendarStore
+{
+	NSError *error;	
+	BirthdayEvent *event = [[[BirthdayEvent alloc] init] autorelease];
+	event.calendar = calendar;
+	event.title = [person reminderTitle];
+	
+	event.isAllDay = [event isAllDayEvent: [[[self parameters] objectForKey:@"ddn_eventType"] boolValue]];
+	event.startDate = [event constructEventStartDate: [self getReminderDateForPerson:person] alertTime: [self getEventTime]];
+	event.endDate = [event constructEventEndDate: [self getReminderDateForPerson:person] alertTime: [self getEventTime]];
+	
+	if (showUrl) {
+		event.url = [person addressbookUrl];
+	}
+	
+	// recurring event
+	event.recurrenceRule = [[[CalRecurrenceRule alloc] initYearlyRecurrenceWithInterval:1 end:nil] autorelease];
+	
+	// alarm for event
+	[event addAlarm: [event createAlarm: [self getAlertTime] alarmType: [[[self parameters] objectForKey:@"ddn_alarm"] integerValue] fromEmailAddress: [self findEmailFromMyCard]]];
+	
+	// Save changes to an event
+	if ([calendarStore saveEvent:event span:CalSpanAllEvents error:&error] == NO){
+		NSAlert *alertPanel = [NSAlert alertWithError:error];
+		(void) [alertPanel runModal];
+	}
+	return event;
+}
+
+
 
 
 #pragma mark remove Events
@@ -178,7 +305,6 @@
 	
 	NSArray *calEventUIDs = [self allEventUIDsForCalendar: calendarObject];
 	NSMutableArray *removedCalEventUIDs = [NSMutableArray array];
-	NSLog(@"events: %i", [calEventUIDs count]);
 	
 	for (NSString *eventUID in calEventUIDs) {			
 		NSPredicate *eventPredicate = [CalCalendarStore eventPredicateWithStartDate: todayBefore4Years endDate: [NSDate date] UID: eventUID calendars: [NSArray arrayWithObject: calendarObject]];
@@ -196,7 +322,6 @@
 			}
 		}
 	}
-	NSLog(@"events removed: %i", [removedCalEventUIDs count]);
 	
 	if ([calEventUIDs count] > [removedCalEventUIDs count]) {
 		// remove all events from the last 4 years
@@ -212,6 +337,21 @@
 			}
 		}
 	}
+}
+
+-(NSString *)findEmailFromMyCard {	
+	// find 'me' card in address book
+	ABPerson *meCard = [[ABAddressBook sharedAddressBook] me];
+	NSString *anEmail = nil;
+	
+    // Find primary email address
+    ABMutableMultiValue *anEmailList = [[meCard valueForProperty:kABEmailProperty] mutableCopy];
+	if ([anEmailList count] > 0) {
+		int primaryIndex = [anEmailList indexForIdentifier:[anEmailList primaryIdentifier]];
+		anEmail = [[anEmailList valueAtIndex:primaryIndex] mutableCopy];
+	}
+	[anEmailList release];
+	return anEmail;
 }
 
 @end
