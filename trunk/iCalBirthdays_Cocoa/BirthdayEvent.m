@@ -50,11 +50,51 @@
 }
 
 
-- (CalAlarm *) createAlarm: (NSInteger) alertTime {
+- (NSInteger) constructRelativeReminderTime: (NSInteger) reminderTime withAlarmTime: (NSInteger) alertTime {
+	if (self.isAllDay) {
+		return alertTime - reminderTime;
+	} else {
+		return -reminderTime;
+	}
+}
+
+
+- (CalAlarm *) createAlarm:(NSInteger)alertTime alarmType:(NSInteger)type fromEmailAddress:(NSString *)email {
 	CalAlarm *alarm = [CalAlarm alarm];
-	alarm.action = CalAlarmActionSound;
-	alarm.sound = @"Basso";
+	
+	if (ALARM_SOUND == type) {
+		alarm.action = CalAlarmActionSound;
+		alarm.sound = @"Basso";	
+	}
+	else if (ALARM_MESSAGE == type) {
+		alarm.action = CalAlarmActionDisplay;
+	} 
+	else {
+		alarm.action = CalAlarmActionEmail;
+		alarm.emailAddress = email;
+	}
+
 	alarm.relativeTrigger = [self constructRelativeAlertTime: alertTime];
+	return alarm;
+}
+
+
+- (CalAlarm *) createReminderAlarm:(NSInteger)reminderTime withAlarmTime:(NSInteger)alertTime alarmType:(NSInteger)type fromEmailAddress:(NSString *)email {
+	CalAlarm *alarm = [CalAlarm alarm];
+	
+	if (ALARM_SOUND == type) {
+		alarm.action = CalAlarmActionSound;
+		alarm.sound = @"Basso";	
+	}
+	else if (ALARM_MESSAGE == type) {
+		alarm.action = CalAlarmActionDisplay;
+	} 
+	else {
+		alarm.action = CalAlarmActionEmail;
+		alarm.emailAddress = email;
+	}
+	
+	alarm.relativeTrigger = [self constructRelativeReminderTime: reminderTime withAlarmTime: alertTime];
 	return alarm;
 }
 

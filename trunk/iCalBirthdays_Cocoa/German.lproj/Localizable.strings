@@ -7,6 +7,8 @@
  */
 
 "'s birthday" = "'s Geburtstag";
+"no own card" = "FEHLER: Sie haben keine eigene Visitenkarte im Adressbuch.";
+"no primary email on own card" = "FEHLER: Ihre eigene Visitenkarte hat keine primäre E-Mail-Adresse.";
 "year" = "Jahr";
 "years" = "Jahre";
 "in year" = "im Jahr";

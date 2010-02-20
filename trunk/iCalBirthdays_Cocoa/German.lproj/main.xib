@@ -12,7 +12,7 @@
 		</object>
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
-			<integer value="5"/>
+			<integer value="100225"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -985,6 +985,17 @@
 									<object class="NSMenuItem" id="175507284">
 										<reference key="NSMenu" ref="424573620"/>
 										<string key="NSTitle">Nachricht mit Ton</string>
+										<string key="NSKeyEquiv"/>
+										<int key="NSKeyEquivModMask">1048576</int>
+										<int key="NSMnemonicLoc">2147483647</int>
+										<reference key="NSOnImage" ref="1073195399"/>
+										<reference key="NSMixedImage" ref="179782942"/>
+										<string key="NSAction">_popUpItemAction:</string>
+										<reference key="NSTarget" ref="291215272"/>
+									</object>
+									<object class="NSMenuItem" id="741480247">
+										<reference key="NSMenu" ref="424573620"/>
+										<string key="NSTitle">E-Mail</string>
 										<string key="NSKeyEquiv"/>
 										<int key="NSKeyEquivModMask">1048576</int>
 										<int key="NSMnemonicLoc">2147483647</int>
@@ -2408,6 +2419,7 @@
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<reference ref="175507284"/>
 							<reference ref="821919309"/>
+							<reference ref="741480247"/>
 						</object>
 						<reference key="parent" ref="291215272"/>
 					</object>
@@ -2539,6 +2551,11 @@
 						<int key="objectID">100247</int>
 						<reference key="object" ref="1069770517"/>
 						<reference key="parent" ref="146486057"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">100282</int>
+						<reference key="object" ref="741480247"/>
+						<reference key="parent" ref="424573620"/>
 					</object>
 				</object>
 			</object>
@@ -2760,6 +2777,8 @@
 					<string>100245.IBPluginDependency</string>
 					<string>100246.IBPluginDependency</string>
 					<string>100247.IBPluginDependency</string>
+					<string>100282.IBPluginDependency</string>
+					<string>100282.ImportedFromIB2</string>
 					<string>5.IBEditorWindowLastContentRect</string>
 					<string>5.IBPluginDependency</string>
 					<string>5.ImportedFromIB2</string>
@@ -2942,7 +2961,7 @@
 					<boolean value="YES"/>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>{{1366, 502}, {204, 37}}</string>
+					<string>{{675, 485}, {204, 54}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<boolean value="YES"/>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -2983,6 +3002,8 @@
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
+					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
+					<boolean value="YES"/>
 					<string>{{540, 322}, {400, 386}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<integer value="1"/>
@@ -3007,7 +3028,7 @@
 				</object>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">100281</int>
+			<int key="maxID">100282</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
