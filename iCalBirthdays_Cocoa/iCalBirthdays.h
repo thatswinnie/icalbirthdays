@@ -22,6 +22,7 @@
 - (NSInteger) getAlertTime;
 - (NSInteger) getReminderTime;
 - (NSDictionary *) getPeopleWithBirthday;
+- (NSDictionary *)filterPeopleWithBirthdayForInput:(NSDictionary *)peopleWithBirthday input:(id *)input;
 - (NSDate *) getReminderDateForPerson: (id) person;
 
 - (BirthdayEvent *)createBirthdayEventForPerson:(id)person inCalendar:(CalCalendar *)calendar showAddressBookUrl:(BOOL)showUrl  calendarStore:(CalCalendarStore *)calendarStore;

@@ -10,7 +10,7 @@
 		<true/>
 		<key>Types</key>
 		<array>
-			<string>com.apple.cocoa.path</string>
+			<string>com.apple.addressbook.person-object</string>
 		</array>
 	</dict>
 	<key>AMApplication</key>
@@ -25,6 +25,8 @@
 	<dict>
 		<key>ipt_iCalCalendarName</key>
 		<string>my birthdays</string>
+		<key>ddn_timeperiod</key>
+		<string>0</string>
 		<key>ddn_eventType</key>
 		<string>0</string>
 		<key>ddn_alertType</key>
