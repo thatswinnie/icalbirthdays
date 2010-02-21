@@ -22,6 +22,9 @@
 	BOOL showUrl = [[[self parameters] objectForKey:@"cbx_url"] boolValue];
 	NSBundle *thisBundle = [NSBundle bundleForClass:[self class]];
 	
+	//NSLog(@"input: %@", input);
+	//NSLog(@"input numberOfItems: %i", [input numberOfItems]);
+	
 	// find 'me' card in address book
 	ABPerson *meCard = [[ABAddressBook sharedAddressBook] me];
 	if (meCard == nil) {
@@ -31,8 +34,7 @@
 	}
 	
 	// check if email exists
-	// TODO
-	if ([[[self parameters] objectForKey:@"ddn_alarm"] integerValue] == 2 && [self findEmailFromMyCard] == nil) {		
+	if ([[[self parameters] objectForKey:@"ddn_alarm"] integerValue] == ALARM_EMAIL && [self findEmailFromMyCard] == nil) {		
 		NSString *errorString = [thisBundle localizedStringForKey:@"no primary email on own card" value:@"ERROR: Your own card has no primary email address." table:nil];
 		*errorInfo = [NSDictionary dictionaryWithObjectsAndKeys: [errorString autorelease], NSAppleScriptErrorMessage, nil];		
 		return nil;
@@ -65,6 +67,16 @@
 	
 	if (bdayCalendar != nil) {		
 		NSDictionary *peopleWithBirthdays = [self getPeopleWithBirthday];
+		//NSLog(@"bday people: %@", peopleWithBirthdays);
+		
+//		if ([input numberOfItems] > 0) {
+//			NSLog(@"input first element: %@", [input descriptorAtIndex:1]);
+//			NSString *aStr = [[NSString alloc] initWithData:[[input descriptorAtIndex:1] data] encoding:NSASCIIStringEncoding];
+//			NSLog(@"input first element: %@", aStr);
+//			//peopleWithBirthdays = [self filterPeopleWithBirthdayForInput:peopleWithBirthdays input:input];
+//		}
+		//NSLog(@"bday people filtered: %@", peopleWithBirthdays);
+			
 		NSEnumerator *enumerator = [peopleWithBirthdays objectEnumerator];
 		id person;
 		
@@ -83,23 +95,6 @@
 	}
 	
 	return input;
-}
-
-
-- (void)updateParameters
-{
-	
-}
-
-
-- (void)parametersUpdated
-{
-//	if ([[[self parameters] objectForKey:@"ddn_alertType"] integerValue] == 0) {
-//		// deactivate reminder
-//		[[self parameters] setObject:[NSNumber numberWithInt:[_interactiveType selectedRow]] forKey:@"spr_reminder"];
-//	} else {
-//		// activate reminder
-//	}
 }
 
 
@@ -185,6 +180,19 @@
 }
 
 
+- (NSDictionary *)filterPeopleWithBirthdayForInput:(NSDictionary *)peopleWithBirthday input:(id *)input
+{
+	NSMutableDictionary *birthdayPeopleDict = [NSMutableDictionary dictionary];
+//	for( i = 1; i <= [input numberOfItems]; i++ ){
+//	//for (ABPerson *person in input) {
+//		if ([peopleWithBirthday valueForKey:[person uniqueId]] != nil) {			
+//			[birthdayPeopleDict setValue: [peopleWithBirthday valueForKey:[person uniqueId]] forKey: [person uniqueId]];
+//		}
+//	}
+	return birthdayPeopleDict;
+}
+
+
 
 #pragma mark Event creation
 
@@ -196,15 +204,17 @@
 	event.title = [person eventTitle];
 	
 	event.isAllDay = [event isAllDayEvent: [[[self parameters] objectForKey:@"ddn_eventType"] boolValue]];
-	event.startDate = [event constructEventStartDate: [person valueForProperty:kABBirthdayProperty] alertTime: [self getEventTime]];
-	event.endDate = [event constructEventEndDate: [person valueForProperty:kABBirthdayProperty] alertTime: [self getEventTime]];
+	event.startDate = [event constructEventStartDate: [person valueForProperty:kABBirthdayProperty] alertTime: [self getEventTime] inTimePeriod:[[[self parameters] objectForKey:@"ddn_timeperiod"] integerValue]];
+	event.endDate = [event constructEventEndDate: [person valueForProperty:kABBirthdayProperty] alertTime: [self getEventTime] inTimePeriod:[[[self parameters] objectForKey:@"ddn_timeperiod"] integerValue]];
 	
 	if (showUrl) {
 		event.url = [person addressbookUrl];
 	}
 	
 	// recurring event
-	event.recurrenceRule = [[[CalRecurrenceRule alloc] initYearlyRecurrenceWithInterval:1 end:nil] autorelease];
+	if ([[[self parameters] objectForKey:@"ddn_timeperiod"] integerValue] == TIMEPERIOD_SINCE_BIRTH) {
+		event.recurrenceRule = [[[CalRecurrenceRule alloc] initYearlyRecurrenceWithInterval:1 end:nil] autorelease];
+	}
 	
 	// alarm for event
 	[event addAlarm: [event createAlarm: [self getAlertTime] alarmType: [[[self parameters] objectForKey:@"ddn_alarm"] integerValue]fromEmailAddress: [self findEmailFromMyCard]]];
@@ -242,15 +252,17 @@
 	event.title = [person reminderTitle];
 	
 	event.isAllDay = [event isAllDayEvent: [[[self parameters] objectForKey:@"ddn_eventType"] boolValue]];
-	event.startDate = [event constructEventStartDate: [self getReminderDateForPerson:person] alertTime: [self getEventTime]];
-	event.endDate = [event constructEventEndDate: [self getReminderDateForPerson:person] alertTime: [self getEventTime]];
+	event.startDate = [event constructEventStartDate: [self getReminderDateForPerson:person] alertTime: [self getEventTime] inTimePeriod:[[[self parameters] objectForKey:@"ddn_timeperiod"] integerValue]];
+	event.endDate = [event constructEventEndDate: [self getReminderDateForPerson:person] alertTime: [self getEventTime] inTimePeriod:[[[self parameters] objectForKey:@"ddn_timeperiod"] integerValue]];
 	
 	if (showUrl) {
 		event.url = [person addressbookUrl];
 	}
 	
 	// recurring event
-	event.recurrenceRule = [[[CalRecurrenceRule alloc] initYearlyRecurrenceWithInterval:1 end:nil] autorelease];
+	if ([[[self parameters] objectForKey:@"ddn_timeperiod"] integerValue] == TIMEPERIOD_SINCE_BIRTH) {
+		event.recurrenceRule = [[[CalRecurrenceRule alloc] initYearlyRecurrenceWithInterval:1 end:nil] autorelease];
+	}
 	
 	// alarm for event
 	[event addAlarm: [event createAlarm: [self getAlertTime] alarmType: [[[self parameters] objectForKey:@"ddn_alarm"] integerValue] fromEmailAddress: [self findEmailFromMyCard]]];
@@ -299,15 +311,17 @@
 	NSError *error;	
 	NSCalendar *calendar = [NSCalendar currentCalendar];
 	NSDateComponents *components = [[NSDateComponents alloc] init];
-	components.year = -4;
-	NSDate *todayBefore4Years = [calendar dateByAddingComponents: components toDate: [NSDate date] options:0];
-	[components release];		
+	components.year = -2;
+	NSDate *todayBefore2Years = [calendar dateByAddingComponents: components toDate: [NSDate date] options:0];
+	components.year = 2;
+	NSDate *todayIn2Years = [calendar dateByAddingComponents: components toDate: [NSDate date] options:0];
+	[components release];
 	
 	NSArray *calEventUIDs = [self allEventUIDsForCalendar: calendarObject];
 	NSMutableArray *removedCalEventUIDs = [NSMutableArray array];
 	
 	for (NSString *eventUID in calEventUIDs) {			
-		NSPredicate *eventPredicate = [CalCalendarStore eventPredicateWithStartDate: todayBefore4Years endDate: [NSDate date] UID: eventUID calendars: [NSArray arrayWithObject: calendarObject]];
+		NSPredicate *eventPredicate = [CalCalendarStore eventPredicateWithStartDate: todayBefore2Years endDate: todayIn2Years UID: eventUID calendars: [NSArray arrayWithObject: calendarObject]];
 		NSArray *calEvents = [calendarStore eventsWithPredicate: eventPredicate];
 		
 		if ([calEvents count] > 0) {
@@ -325,7 +339,7 @@
 	
 	if ([calEventUIDs count] > [removedCalEventUIDs count]) {
 		// remove all events from the last 4 years
-		NSPredicate *eventPredicate = [CalCalendarStore eventPredicateWithStartDate: todayBefore4Years endDate: [NSDate date] calendars: [NSArray arrayWithObject: calendarObject]];
+		NSPredicate *eventPredicate = [CalCalendarStore eventPredicateWithStartDate: todayBefore2Years endDate: todayIn2Years calendars: [NSArray arrayWithObject: calendarObject]];
 		NSArray *calEvents = [calendarStore eventsWithPredicate: eventPredicate];
 		
 		if ([calEvents count] > 0) {

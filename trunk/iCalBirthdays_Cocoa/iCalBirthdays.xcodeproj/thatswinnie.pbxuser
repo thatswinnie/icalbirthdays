@@ -1,18 +1,5 @@
 // !$*UTF8*$!
 {
-	0132D01E112B03080043A5E1 /* PlistBookmark */ = {
-		isa = PlistBookmark;
-		fRef = 8D5B49B7048680CD000E48DA /* Info.plist */;
-		fallbackIsa = PBXBookmark;
-		isK = 0;
-		kPath = (
-			AMDefaultParameters,
-			ipt_alert_format,
-		);
-		name = /Volumes/data/programming/Apple/Cocoa/_own_code/iCalBirthdays/iCalBirthdays_Cocoa/Info.plist;
-		rLen = 0;
-		rLoc = 9223372036854775808;
-	};
 	0132D036112B06420043A5E1 /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
 		fRef = 0132D037112B06420043A5E1 /* CalCalendarItem.h */;
@@ -30,37 +17,18 @@
 		path = /Developer/SDKs/MacOSX10.6.sdk/System/Library/Frameworks/CalendarStore.framework/Versions/A/Headers/CalCalendarItem.h;
 		sourceTree = "<absolute>";
 	};
-	01390DAE11306DD000845064 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 65181750067A8D39005BD953 /* iCalBirthdays.m */;
-		name = "iCalBirthdays.m: 18";
+	015951691131BAE9008115CB /* PlistBookmark */ = {
+		isa = PlistBookmark;
+		fRef = 8D5B49B7048680CD000E48DA /* Info.plist */;
+		fallbackIsa = PBXBookmark;
+		isK = 0;
+		kPath = (
+		);
+		name = /Volumes/data/programming/Apple/Cocoa/_own_code/iCalBirthdays/iCalBirthdays_Cocoa/Info.plist;
 		rLen = 0;
-		rLoc = 299;
-		rType = 0;
-		vrLen = 1672;
-		vrLoc = 0;
+		rLoc = 9223372036854775807;
 	};
-	01390DB611306E1800845064 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 6518174F067A8D39005BD953 /* iCalBirthdays.h */;
-		name = "iCalBirthdays.h: 17";
-		rLen = 0;
-		rLoc = 340;
-		rType = 0;
-		vrLen = 1353;
-		vrLoc = 0;
-	};
-	01390DB711306E1800845064 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 018C8C7E111496ED00B222AF /* BirthdayEvent.m */;
-		name = "BirthdayEvent.m: 62";
-		rLen = 16;
-		rLoc = 1319;
-		rType = 0;
-		vrLen = 1031;
-		vrLoc = 3;
-	};
-	01390DB811306E1800845064 /* PBXTextBookmark */ = {
+	0159518F1131C383008115CB /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
 		fRef = 018C8C7F111496ED00B222AF /* BirthdayPerson.h */;
 		name = "BirthdayPerson.h: 17";
@@ -70,57 +38,67 @@
 		vrLen = 1285;
 		vrLoc = 0;
 	};
-	01390DB911306E1800845064 /* PBXTextBookmark */ = {
+	015951901131C383008115CB /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
 		fRef = 018C8C80111496ED00B222AF /* BirthdayPerson.m */;
-		name = "BirthdayPerson.m: 48";
-		rLen = 64;
-		rLoc = 1268;
+		name = "BirthdayPerson.m: 192";
+		rLen = 224;
+		rLoc = 8236;
 		rType = 0;
-		vrLen = 2208;
-		vrLoc = 882;
+		vrLen = 2411;
+		vrLoc = 6431;
 	};
-	01390DBA11306E1800845064 /* PBXTextBookmark */ = {
+	015951C31131CE4C008115CB /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
-		fRef = 65181750067A8D39005BD953 /* iCalBirthdays.m */;
-		name = "iCalBirthdays.m: 15";
-		rLen = 0;
-		rLoc = 269;
+		fRef = 018C8C7E111496ED00B222AF /* BirthdayEvent.m */;
+		name = "BirthdayEvent.m: 94";
+		rLen = 11;
+		rLoc = 2503;
 		rType = 0;
-		vrLen = 1651;
+		vrLen = 1519;
+		vrLoc = 1616;
+	};
+	015951C41131CE4C008115CB /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 018C8C7D111496ED00B222AF /* BirthdayEvent.h */;
+		name = "BirthdayEvent.h: 14";
+		rLen = 11;
+		rLoc = 263;
+		rType = 0;
+		vrLen = 1249;
 		vrLoc = 0;
 	};
-	01390DBB11306E1800845064 /* PBXTextBookmark */ = {
+	015951C51131CE4C008115CB /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
-		fRef = 65181750067A8D39005BD953 /* iCalBirthdays.m */;
-		name = "iCalBirthdays.m: 23";
+		fRef = 6518174F067A8D39005BD953 /* iCalBirthdays.h */;
+		name = "iCalBirthdays.h: 25";
 		rLen = 0;
-		rLoc = 697;
+		rLoc = 663;
 		rType = 0;
-		vrLen = 1708;
+		vrLen = 1458;
 		vrLoc = 0;
 	};
-	01390DC81130703B00845064 /* PBXTextBookmark */ = {
+	015951C61131CE4C008115CB /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
 		fRef = 65181750067A8D39005BD953 /* iCalBirthdays.m */;
-		name = "iCalBirthdays.m: 23";
-		rLen = 0;
-		rLoc = 697;
+		name = "iCalBirthdays.m: 287";
+		rLen = 12;
+		rLoc = 10454;
 		rType = 0;
-		vrLen = 1928;
-		vrLoc = 300;
+		vrLen = 2176;
+		vrLoc = 12772;
 	};
-	01390DC91130703B00845064 /* PBXTextBookmark */ = {
+	015951DF1131D3A5008115CB /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
 		fRef = 65181750067A8D39005BD953 /* iCalBirthdays.m */;
-		name = "iCalBirthdays.m: 307";
+		name = "iCalBirthdays.m: 99";
 		rLen = 0;
-		rLoc = 11182;
+		rLoc = 3683;
 		rType = 0;
-		vrLen = 1597;
-		vrLoc = 11497;
+		vrLen = 2147;
+		vrLoc = 1821;
 	};
-	016A80A9112047870095C265 /* iCalBirthdays.m:225 */ = {
+	016A80A9112047870095C265 /* iCalBirthdays.m:235 */ = {
 		isa = PBXFileBreakpoint;
 		actions = (
 		);
@@ -132,9 +110,9 @@
 		functionName = "-addReminderToEvent:forPerson:calendarStore:";
 		hitCount = 0;
 		ignoreCount = 0;
-		lineNumber = 225;
+		lineNumber = 235;
 		location = iCalBirthdays;
-		modificationTime = 288377879.61299;
+		modificationTime = 288477992.074738;
 		originalNumberOfMultipleMatches = 1;
 		state = 2;
 	};
@@ -147,21 +125,21 @@
 	};
 	018C8C7D111496ED00B222AF /* BirthdayEvent.h */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {988, 622}}";
-			sepNavSelRange = "{306, 11}";
-			sepNavVisRange = "{0, 1052}";
+			sepNavIntBoundsRect = "{{0, 0}, {1114, 754}}";
+			sepNavSelRange = "{263, 11}";
+			sepNavVisRange = "{0, 1249}";
 		};
 	};
 	018C8C7E111496ED00B222AF /* BirthdayEvent.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {988, 1326}}";
-			sepNavSelRange = "{1319, 16}";
-			sepNavVisRange = "{3, 1031}";
+			sepNavIntBoundsRect = "{{0, 0}, {720, 1742}}";
+			sepNavSelRange = "{2503, 11}";
+			sepNavVisRange = "{2317, 352}";
 		};
 	};
 	018C8C7F111496ED00B222AF /* BirthdayPerson.h */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {988, 622}}";
+			sepNavIntBoundsRect = "{{0, 0}, {1114, 754}}";
 			sepNavSelRange = "{323, 19}";
 			sepNavVisRange = "{0, 1285}";
 			sepNavWindowFrame = "{{84, 576}, {1165, 774}}";
@@ -169,9 +147,9 @@
 	};
 	018C8C80111496ED00B222AF /* BirthdayPerson.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {988, 3107}}";
-			sepNavSelRange = "{1268, 64}";
-			sepNavVisRange = "{882, 2208}";
+			sepNavIntBoundsRect = "{{0, 0}, {720, 3107}}";
+			sepNavSelRange = "{2261, 12}";
+			sepNavVisRange = "{1815, 660}";
 			sepNavWindowFrame = "{{15, 4}, {1165, 774}}";
 		};
 	};
@@ -209,61 +187,6 @@
 		path = /Developer/SDKs/MacOSX10.6.sdk/System/Library/Frameworks/CalendarStore.framework/Versions/A/Headers/CalEvent.h;
 		sourceTree = "<absolute>";
 	};
-	01BE0E4E1119BD64000EAC5D /* BirthdayEvent.m:27 */ = {
-		isa = PBXFileBreakpoint;
-		actions = (
-		);
-		breakpointStyle = 0;
-		continueAfterActions = 0;
-		countType = 0;
-		delayBeforeContinue = 0;
-		fileReference = 018C8C7E111496ED00B222AF /* BirthdayEvent.m */;
-		functionName = "-constructAlertDate:alertTime:";
-		hitCount = 0;
-		ignoreCount = 0;
-		lineNumber = 27;
-		location = iCalBirthdays;
-		modificationTime = 288377879.612594;
-		originalNumberOfMultipleMatches = 1;
-		state = 1;
-	};
-	01DE52E811303AAA005DBA62 /* ABPerson+SSExtensions.m */ = {
-		isa = PBXFileReference;
-		lastKnownFileType = sourcecode.c.objc;
-		name = "ABPerson+SSExtensions.m";
-		path = "/Users/thatswinnie/Downloads/AddressBookTest/ABPerson+SSExtensions.m";
-		sourceTree = "<absolute>";
-	};
-	01DE52F211303BE7005DBA62 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 01DE52E811303AAA005DBA62 /* ABPerson+SSExtensions.m */;
-		name = "ABPerson+SSExtensions.m: 8";
-		rLen = 0;
-		rLoc = 168;
-		rType = 0;
-		vrLen = 731;
-		vrLoc = 0;
-	};
-	01DE531411303E06005DBA62 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 018C8C7D111496ED00B222AF /* BirthdayEvent.h */;
-		name = "BirthdayEvent.h: 15";
-		rLen = 11;
-		rLoc = 306;
-		rType = 0;
-		vrLen = 1052;
-		vrLoc = 0;
-	};
-	01DE531611303E06005DBA62 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 018C8C7F111496ED00B222AF /* BirthdayPerson.h */;
-		name = "BirthdayPerson.h: 17";
-		rLen = 19;
-		rLoc = 323;
-		rType = 0;
-		vrLen = 1285;
-		vrLoc = 0;
-	};
 	01DE543D11304FB5005DBA62 /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
 		fRef = 01E70F21111D7D26005BADD8 /* German */;
@@ -274,36 +197,6 @@
 		vrLen = 408;
 		vrLoc = 0;
 	};
-	01DE544511306C34005DBA62 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 018C8C7E111496ED00B222AF /* BirthdayEvent.m */;
-		name = "BirthdayEvent.m: 62";
-		rLen = 16;
-		rLoc = 1319;
-		rType = 0;
-		vrLen = 1008;
-		vrLoc = 23;
-	};
-	01DE544611306C34005DBA62 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 018C8C80111496ED00B222AF /* BirthdayPerson.m */;
-		name = "BirthdayPerson.m: 120";
-		rLen = 80;
-		rLoc = 5143;
-		rType = 0;
-		vrLen = 2111;
-		vrLoc = 3462;
-	};
-	01DE544711306C34005DBA62 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 6518174F067A8D39005BD953 /* iCalBirthdays.h */;
-		name = "iCalBirthdays.h: 1";
-		rLen = 0;
-		rLoc = 0;
-		rType = 0;
-		vrLen = 1461;
-		vrLoc = 0;
-	};
 	01DE544811306C34005DBA62 /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
 		fRef = 01E70F1A111D7D0E005BADD8 /* English */;
@@ -312,26 +205,6 @@
 		rLoc = 184;
 		rType = 0;
 		vrLen = 371;
-		vrLoc = 0;
-	};
-	01DE544911306C34005DBA62 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 65181750067A8D39005BD953 /* iCalBirthdays.m */;
-		name = "iCalBirthdays.m: 36";
-		rLen = 0;
-		rLoc = 1396;
-		rType = 0;
-		vrLen = 1636;
-		vrLoc = 3;
-	};
-	01DE544B11306DBC005DBA62 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 65181750067A8D39005BD953 /* iCalBirthdays.m */;
-		name = "iCalBirthdays.m: 18";
-		rLen = 0;
-		rLoc = 299;
-		rType = 0;
-		vrLen = 1672;
 		vrLoc = 0;
 	};
 	01E70F1A111D7D0E005BADD8 /* English */ = {
@@ -369,6 +242,24 @@
 		vrLen = 1058;
 		vrLoc = 0;
 	};
+	01E7E6B911315B9900DF6C4B /* iCalBirthdays.m:70 */ = {
+		isa = PBXFileBreakpoint;
+		actions = (
+		);
+		breakpointStyle = 0;
+		continueAfterActions = 0;
+		countType = 0;
+		delayBeforeContinue = 0;
+		fileReference = 65181750067A8D39005BD953 /* iCalBirthdays.m */;
+		functionName = "-runWithInput:fromAction:error:";
+		hitCount = 0;
+		ignoreCount = 0;
+		lineNumber = 70;
+		location = iCalBirthdays;
+		modificationTime = 288477992.075329;
+		originalNumberOfMultipleMatches = 1;
+		state = 2;
+	};
 	01EFCA111118572100952FEC /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
 		fRef = 01EFCA121118572100952FEC /* CalCalendarStore.h */;
@@ -395,8 +286,8 @@
 			8D5B49AC048680CD000E48DA /* iCalBirthdays */,
 		);
 		breakpoints = (
-			01BE0E4E1119BD64000EAC5D /* BirthdayEvent.m:27 */,
-			016A80A9112047870095C265 /* iCalBirthdays.m:225 */,
+			016A80A9112047870095C265 /* iCalBirthdays.m:235 */,
+			01E7E6B911315B9900DF6C4B /* iCalBirthdays.m:70 */,
 		);
 		codeSenseManager = 658A2DD0067AB96600421F51 /* Code sense */;
 		executables = (
@@ -446,7 +337,7 @@
 				PBXFileTableDataSourceColumnSortingKey = PBXFileDataSource_Filename_ColumnID;
 				PBXFileTableDataSourceColumnWidthsKey = (
 					20,
-					810,
+					936,
 					20,
 					48,
 					43,
@@ -485,36 +376,26 @@
 					PBXFileDataSource_Warnings_ColumnID,
 				);
 			};
-			PBXPerProjectTemplateStateSaveDate = 288386509;
-			PBXWorkspaceStateSaveDate = 288386509;
+			PBXPerProjectTemplateStateSaveDate = 288467691;
+			PBXWorkspaceStateSaveDate = 288467691;
 		};
 		perUserProjectItems = {
-			0132D01E112B03080043A5E1 = 0132D01E112B03080043A5E1 /* PlistBookmark */;
-			0132D036112B06420043A5E1 = 0132D036112B06420043A5E1 /* PBXTextBookmark */;
-			01390DAE11306DD000845064 /* PBXTextBookmark */ = 01390DAE11306DD000845064 /* PBXTextBookmark */;
-			01390DB611306E1800845064 /* PBXTextBookmark */ = 01390DB611306E1800845064 /* PBXTextBookmark */;
-			01390DB711306E1800845064 /* PBXTextBookmark */ = 01390DB711306E1800845064 /* PBXTextBookmark */;
-			01390DB811306E1800845064 /* PBXTextBookmark */ = 01390DB811306E1800845064 /* PBXTextBookmark */;
-			01390DB911306E1800845064 /* PBXTextBookmark */ = 01390DB911306E1800845064 /* PBXTextBookmark */;
-			01390DBA11306E1800845064 /* PBXTextBookmark */ = 01390DBA11306E1800845064 /* PBXTextBookmark */;
-			01390DBB11306E1800845064 /* PBXTextBookmark */ = 01390DBB11306E1800845064 /* PBXTextBookmark */;
-			01390DC81130703B00845064 /* PBXTextBookmark */ = 01390DC81130703B00845064 /* PBXTextBookmark */;
-			01390DC91130703B00845064 /* PBXTextBookmark */ = 01390DC91130703B00845064 /* PBXTextBookmark */;
-			018C8CA211149D4C00B222AF = 018C8CA211149D4C00B222AF /* PBXTextBookmark */;
-			01BE0DA71119A277000EAC5D = 01BE0DA71119A277000EAC5D /* PBXTextBookmark */;
-			01DE52F211303BE7005DBA62 = 01DE52F211303BE7005DBA62 /* PBXTextBookmark */;
-			01DE531411303E06005DBA62 = 01DE531411303E06005DBA62 /* PBXTextBookmark */;
-			01DE531611303E06005DBA62 = 01DE531611303E06005DBA62 /* PBXTextBookmark */;
-			01DE543D11304FB5005DBA62 = 01DE543D11304FB5005DBA62 /* PBXTextBookmark */;
-			01DE544511306C34005DBA62 = 01DE544511306C34005DBA62 /* PBXTextBookmark */;
-			01DE544611306C34005DBA62 = 01DE544611306C34005DBA62 /* PBXTextBookmark */;
-			01DE544711306C34005DBA62 = 01DE544711306C34005DBA62 /* PBXTextBookmark */;
-			01DE544811306C34005DBA62 = 01DE544811306C34005DBA62 /* PBXTextBookmark */;
-			01DE544911306C34005DBA62 = 01DE544911306C34005DBA62 /* PBXTextBookmark */;
-			01DE544B11306DBC005DBA62 = 01DE544B11306DBC005DBA62 /* PBXTextBookmark */;
-			01E7104C111DB1B2005BADD8 = 01E7104C111DB1B2005BADD8 /* PBXTextBookmark */;
-			01E7104D111DB1B2005BADD8 = 01E7104D111DB1B2005BADD8 /* PBXTextBookmark */;
-			01EFCA111118572100952FEC = 01EFCA111118572100952FEC /* PBXTextBookmark */;
+			0132D036112B06420043A5E1 /* PBXTextBookmark */ = 0132D036112B06420043A5E1 /* PBXTextBookmark */;
+			015951691131BAE9008115CB /* PlistBookmark */ = 015951691131BAE9008115CB /* PlistBookmark */;
+			0159518F1131C383008115CB /* PBXTextBookmark */ = 0159518F1131C383008115CB /* PBXTextBookmark */;
+			015951901131C383008115CB /* PBXTextBookmark */ = 015951901131C383008115CB /* PBXTextBookmark */;
+			015951C31131CE4C008115CB /* PBXTextBookmark */ = 015951C31131CE4C008115CB /* PBXTextBookmark */;
+			015951C41131CE4C008115CB /* PBXTextBookmark */ = 015951C41131CE4C008115CB /* PBXTextBookmark */;
+			015951C51131CE4C008115CB /* PBXTextBookmark */ = 015951C51131CE4C008115CB /* PBXTextBookmark */;
+			015951C61131CE4C008115CB /* PBXTextBookmark */ = 015951C61131CE4C008115CB /* PBXTextBookmark */;
+			015951DF1131D3A5008115CB /* PBXTextBookmark */ = 015951DF1131D3A5008115CB /* PBXTextBookmark */;
+			018C8CA211149D4C00B222AF /* PBXTextBookmark */ = 018C8CA211149D4C00B222AF /* PBXTextBookmark */;
+			01BE0DA71119A277000EAC5D /* PBXTextBookmark */ = 01BE0DA71119A277000EAC5D /* PBXTextBookmark */;
+			01DE543D11304FB5005DBA62 /* PBXTextBookmark */ = 01DE543D11304FB5005DBA62 /* PBXTextBookmark */;
+			01DE544811306C34005DBA62 /* PBXTextBookmark */ = 01DE544811306C34005DBA62 /* PBXTextBookmark */;
+			01E7104C111DB1B2005BADD8 /* PBXTextBookmark */ = 01E7104C111DB1B2005BADD8 /* PBXTextBookmark */;
+			01E7104D111DB1B2005BADD8 /* PBXTextBookmark */ = 01E7104D111DB1B2005BADD8 /* PBXTextBookmark */;
+			01EFCA111118572100952FEC /* PBXTextBookmark */ = 01EFCA111118572100952FEC /* PBXTextBookmark */;
 		};
 		sourceControlManager = 658A2DCF067AB96600421F51 /* Source Control */;
 		userBuildSettings = {
@@ -530,18 +411,18 @@
 	};
 	6518174F067A8D39005BD953 /* iCalBirthdays.h */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {988, 622}}";
-			sepNavSelRange = "{340, 0}";
-			sepNavVisRange = "{0, 1353}";
+			sepNavIntBoundsRect = "{{0, 0}, {1114, 754}}";
+			sepNavSelRange = "{663, 0}";
+			sepNavVisRange = "{0, 1458}";
 			sepNavWindowFrame = "{{15, 615}, {750, 558}}";
 		};
 	};
 	65181750067A8D39005BD953 /* iCalBirthdays.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {988, 4563}}";
-			sepNavSelRange = "{11182, 0}";
-			sepNavVisRange = "{11497, 1597}";
-			sepNavWindowFrame = "{{61, 597}, {1165, 774}}";
+			sepNavIntBoundsRect = "{{0, 0}, {889, 4888}}";
+			sepNavSelRange = "{9634, 0}";
+			sepNavVisRange = "{9489, 1041}";
+			sepNavWindowFrame = "{{328, 460}, {1165, 774}}";
 		};
 	};
 	658A2DCF067AB96600421F51 /* Source Control */ = {
@@ -568,7 +449,7 @@
 			"-action \"iCalBirthdays.action\"",
 		);
 		autoAttachOnCrash = 1;
-		breakpointsEnabled = 0;
+		breakpointsEnabled = 1;
 		configStateDict = {
 			"PBXLSLaunchAction-0" = {
 				PBXLSLaunchAction = 0;

@@ -19,25 +19,54 @@
 	}
 }
 
-
-- (NSDate *) constructEventStartDate: (NSDate *) birthdayDate alertTime: (NSInteger) alertTime {
-	if (self.isAllDay) {
-		return birthdayDate;
-	} else {
-		NSDate *alertDate = [[birthdayDate copy] autorelease];
-		return [alertDate dateByAddingTimeInterval: alertTime];
+- (NSDate *) constructEventDate:(NSDate *)birthdayDate inTimePeriod:(NSInteger)period {
+	NSDate *date = [[birthdayDate copy] autorelease];
+	NSCalendar *calendar = [NSCalendar currentCalendar];
+	unsigned unitFlags = NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit;
+	
+	if (TIMEPERIOD_CURRENT_YEAR == period || TIMEPERIOD_NEXT_YEAR == period) {
+		NSDateComponents *dateComponentsNow = [calendar components:unitFlags fromDate:[NSDate date]];
+		NSDateComponents *dateComponentsBirth = [calendar components:unitFlags fromDate:date];	
+		[dateComponentsBirth setYear:[dateComponentsNow year]];
+		date = [calendar dateFromComponents:dateComponentsBirth];
 	}
-	return birthdayDate;
+	
+	if (TIMEPERIOD_NEXT_YEAR == period) {
+		NSDateComponents *components = [[NSDateComponents alloc] init];
+		components.year = 1;
+		date = [calendar dateByAddingComponents:components toDate:date options:0];
+		[components release];
+	}
+	
+	return date;
 }
 
 
-- (NSDate *) constructEventEndDate: (NSDate *) birthdayDate alertTime: (NSInteger) alertTime {
+- (NSDate *) constructEventStartDate:(NSDate *)birthdayDate alertTime:(NSInteger)alertTime inTimePeriod:(NSInteger)period {
+	NSDate *date = [self constructEventDate:birthdayDate inTimePeriod:period];
+	
 	if (self.isAllDay) {
-		return birthdayDate;
+		return date;
 	} else {
-		NSDate *alertDate = [[birthdayDate copy] autorelease];
+		NSDate *alertDate = [[date copy] autorelease];
+		return [alertDate dateByAddingTimeInterval: alertTime];
+	}
+	
+	return date;
+}
+
+
+- (NSDate *) constructEventEndDate:(NSDate *)birthdayDate alertTime:(NSInteger)alertTime inTimePeriod:(NSInteger)period {
+	NSDate *date = [self constructEventDate:birthdayDate inTimePeriod:period];
+	
+	if (self.isAllDay) {
+		return date;
+	} else {
+		NSDate *alertDate = [[date copy] autorelease];
 		return [alertDate dateByAddingTimeInterval: alertTime + 60 * 60];
 	}
+	
+	return date;
 }
 
 
