@@ -93,7 +93,7 @@
 	
 	if (ALARM_SOUND == type) {
 		alarm.action = CalAlarmActionSound;
-		alarm.sound = @"Basso";	
+		alarm.sound = @"Ping";	
 	}
 	else if (ALARM_MESSAGE == type) {
 		alarm.action = CalAlarmActionDisplay;
@@ -113,7 +113,7 @@
 	
 	if (ALARM_SOUND == type) {
 		alarm.action = CalAlarmActionSound;
-		alarm.sound = @"Basso";	
+		alarm.sound = @"Ping";	
 	}
 	else if (ALARM_MESSAGE == type) {
 		alarm.action = CalAlarmActionDisplay;

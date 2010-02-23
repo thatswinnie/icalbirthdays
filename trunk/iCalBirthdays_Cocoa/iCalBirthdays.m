@@ -22,9 +22,6 @@
 	BOOL showUrl = [[[self parameters] objectForKey:@"cbx_url"] boolValue];
 	NSBundle *thisBundle = [NSBundle bundleForClass:[self class]];
 	
-	//NSLog(@"input: %@", input);
-	//NSLog(@"input numberOfItems: %i", [input numberOfItems]);
-	
 	// find 'me' card in address book
 	ABPerson *meCard = [[ABAddressBook sharedAddressBook] me];
 	if (meCard == nil) {
@@ -67,15 +64,10 @@
 	
 	if (bdayCalendar != nil) {		
 		NSDictionary *peopleWithBirthdays = [self getPeopleWithBirthday];
-		//NSLog(@"bday people: %@", peopleWithBirthdays);
 		
-//		if ([input numberOfItems] > 0) {
-//			NSLog(@"input first element: %@", [input descriptorAtIndex:1]);
-//			NSString *aStr = [[NSString alloc] initWithData:[[input descriptorAtIndex:1] data] encoding:NSASCIIStringEncoding];
-//			NSLog(@"input first element: %@", aStr);
-//			//peopleWithBirthdays = [self filterPeopleWithBirthdayForInput:peopleWithBirthdays input:input];
-//		}
-		//NSLog(@"bday people filtered: %@", peopleWithBirthdays);
+		if ([input class] == [NSAppleEventDescriptor class] && [input numberOfItems] > 0) {
+			peopleWithBirthdays = [self filterPeopleWithBirthday:peopleWithBirthdays forInput:input];
+		}
 			
 		NSEnumerator *enumerator = [peopleWithBirthdays objectEnumerator];
 		id person;
@@ -180,15 +172,19 @@
 }
 
 
-- (NSDictionary *)filterPeopleWithBirthdayForInput:(NSDictionary *)peopleWithBirthday input:(id *)input
+- (NSDictionary *)filterPeopleWithBirthday:(NSDictionary *)peopleWithBirthday forInput:(id)input
 {
-	NSMutableDictionary *birthdayPeopleDict = [NSMutableDictionary dictionary];
-//	for( i = 1; i <= [input numberOfItems]; i++ ){
-//	//for (ABPerson *person in input) {
-//		if ([peopleWithBirthday valueForKey:[person uniqueId]] != nil) {			
-//			[birthdayPeopleDict setValue: [peopleWithBirthday valueForKey:[person uniqueId]] forKey: [person uniqueId]];
-//		}
-//	}
+	NSMutableDictionary *birthdayPeopleDict = [NSMutableDictionary dictionary];	
+	NSInteger i;
+	
+	for( i = 1; i <= [input numberOfItems]; i++ ){
+		//for (ABPerson *person in input) {
+		NSAppleEventDescriptor *recdesc = [input descriptorAtIndex:i];
+		NSAppleEventDescriptor *textdesc = [recdesc descriptorForKeyword:'seld'];
+		if ([peopleWithBirthday valueForKey:[textdesc stringValue]] != nil) {			
+			[birthdayPeopleDict setValue: [peopleWithBirthday valueForKey:[textdesc stringValue]] forKey: [textdesc stringValue]];
+		}
+	}
 	return birthdayPeopleDict;
 }
 
@@ -337,17 +333,15 @@
 		}
 	}
 	
-	if ([calEventUIDs count] > [removedCalEventUIDs count]) {
-		// remove all events from the last 4 years
-		NSPredicate *eventPredicate = [CalCalendarStore eventPredicateWithStartDate: todayBefore2Years endDate: todayIn2Years calendars: [NSArray arrayWithObject: calendarObject]];
-		NSArray *calEvents = [calendarStore eventsWithPredicate: eventPredicate];
-		
-		if ([calEvents count] > 0) {
-			for (CalEvent *aEvent in calEvents) {	
-				if ([calendarStore removeEvent: aEvent span: CalSpanAllEvents error: &error] == NO){
-					NSAlert *alertPanel = [NSAlert alertWithError:error];
-					(void) [alertPanel runModal];
-				}
+	NSPredicate *eventPredicate = [CalCalendarStore eventPredicateWithStartDate: todayBefore2Years endDate: todayIn2Years calendars: [NSArray arrayWithObject: calendarObject]];
+	NSArray *calEvents = [calendarStore eventsWithPredicate: eventPredicate];
+	
+	if ([calEventUIDs count] > [removedCalEventUIDs count] || [calEvents count] > 0) {
+		// remove all events that are still present
+		for (CalEvent *aEvent in calEvents) {	
+			if ([calendarStore removeEvent: aEvent span: CalSpanAllEvents error: &error] == NO){
+				NSAlert *alertPanel = [NSAlert alertWithError:error];
+				(void) [alertPanel runModal];
 			}
 		}
 	}
