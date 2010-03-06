@@ -11,6 +11,7 @@
 #import <AddressBook/AddressBook.h>
 #import <BirthdayPerson.h>
 #import <BirthdayEvent.h>
+#include <uuid/uuid.h>
 
 @interface iCalBirthdays : AMBundleAction
 {

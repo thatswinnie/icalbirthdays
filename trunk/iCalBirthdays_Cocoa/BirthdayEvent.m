@@ -49,7 +49,8 @@
 		return date;
 	} else {
 		NSDate *alertDate = [[date copy] autorelease];
-		return [alertDate dateByAddingTimeInterval: alertTime];
+		//return [alertDate dateByAddingTimeInterval: alertTime];		
+		return [alertDate initWithTimeInterval:alertTime sinceDate:alertDate];
 	}
 	
 	return date;
@@ -63,7 +64,8 @@
 		return date;
 	} else {
 		NSDate *alertDate = [[date copy] autorelease];
-		return [alertDate dateByAddingTimeInterval: alertTime + 60 * 60];
+		//return [alertDate dateByAddingTimeInterval: alertTime + 60 * 60];
+		return [alertDate initWithTimeInterval:alertTime + 60 * 60 sinceDate:alertDate];
 	}
 	
 	return date;
