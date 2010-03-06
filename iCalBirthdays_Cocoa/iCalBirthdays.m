@@ -140,7 +140,8 @@
 - (NSDate *) getReminderDateForPerson: (id) person
 {
 	NSDate *birthdayDate = [person valueForProperty:kABBirthdayProperty];	
-	return [birthdayDate dateByAddingTimeInterval: -[self getReminderTime]];
+	//return [birthdayDate dateByAddingTimeInterval: -[self getReminderTime]];
+	return [birthdayDate initWithTimeInterval:-[self getReminderTime] sinceDate:birthdayDate];
 }
 
 
@@ -213,7 +214,9 @@
 	}
 	
 	// alarm for event
-	[event addAlarm: [event createAlarm: [self getAlertTime] alarmType: [[[self parameters] objectForKey:@"ddn_alarm"] integerValue]fromEmailAddress: [self findEmailFromMyCard]]];
+	if ([[[self parameters] objectForKey:@"ddn_alertType"] integerValue] != 1) {
+		[event addAlarm: [event createAlarm: [self getAlertTime] alarmType: [[[self parameters] objectForKey:@"ddn_alarm"] integerValue]fromEmailAddress: [self findEmailFromMyCard]]];
+	}
 	
 	// Save changes to an event
 	if ([calendarStore saveEvent:event span:CalSpanAllEvents error:&error] == NO){
