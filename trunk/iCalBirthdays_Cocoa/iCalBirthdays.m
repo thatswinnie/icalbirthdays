@@ -22,21 +22,22 @@
 	BOOL showUrl = [[[self parameters] objectForKey:@"cbx_url"] boolValue];
 	NSBundle *thisBundle = [NSBundle bundleForClass:[self class]];
 	
-	// find 'me' card in address book
-	ABPerson *meCard = [[ABAddressBook sharedAddressBook] me];
-	if (meCard == nil) {
-		NSString *errorString = [thisBundle localizedStringForKey:@"no own card" value:@"ERROR: You have no own card in Address Book." table:nil];
-		*errorInfo = [NSDictionary dictionaryWithObjectsAndKeys: [errorString autorelease], NSAppleScriptErrorMessage, nil];		
-		return nil;
-	}
-	
-	// check if email exists
-	if ([[[self parameters] objectForKey:@"ddn_alarm"] integerValue] == ALARM_EMAIL && [self findEmailFromMyCard] == nil) {		
-		NSString *errorString = [thisBundle localizedStringForKey:@"no primary email on own card" value:@"ERROR: Your own card has no primary email address." table:nil];
-		*errorInfo = [NSDictionary dictionaryWithObjectsAndKeys: [errorString autorelease], NSAppleScriptErrorMessage, nil];		
-		return nil;
-	}
-	
+	// Email alarm set: check if 'me' card exists in address book
+	if ([[[self parameters] objectForKey:@"ddn_alarm"] integerValue] == ALARM_EMAIL) {
+		ABPerson *meCard = [[ABAddressBook sharedAddressBook] me];
+		if (meCard == nil) {
+			NSString *errorString = [thisBundle localizedStringForKey:@"no own card" value:@"ERROR: You have no own card in Address Book." table:nil];
+			*errorInfo = [NSDictionary dictionaryWithObjectsAndKeys: [errorString autorelease], NSAppleScriptErrorMessage, nil];		
+			return nil;
+		} else {	
+			// check if email exists
+			if ([[[self parameters] objectForKey:@"ddn_alarm"] integerValue] == ALARM_EMAIL && [self findEmailFromMyCard] == nil) {		
+				NSString *errorString = [thisBundle localizedStringForKey:@"no primary email on own card" value:@"ERROR: Your own card has no primary email address." table:nil];
+				*errorInfo = [NSDictionary dictionaryWithObjectsAndKeys: [errorString autorelease], NSAppleScriptErrorMessage, nil];		
+				return nil;
+			}
+		}
+	}	
 	
 	// look for calendar
 	for (CalCalendar *aCalendar in calendars) {
