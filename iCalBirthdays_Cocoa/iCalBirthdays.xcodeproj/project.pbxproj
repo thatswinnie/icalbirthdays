@@ -203,7 +203,14 @@
 			isa = PBXProject;
 			buildConfigurationList = 4E59C34308A97622001206A8 /* Build configuration list for PBXProject "iCalBirthdays" */;
 			compatibilityVersion = "Xcode 3.1";
+			developmentRegion = English;
 			hasScannedForEncodings = 1;
+			knownRegions = (
+				English,
+				Japanese,
+				French,
+				German,
+			);
 			mainGroup = 089C166AFE841209C02AAC07 /* iCalBirthdays */;
 			projectDirPath = "";
 			projectRoot = "";

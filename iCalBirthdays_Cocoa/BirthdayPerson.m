@@ -93,14 +93,26 @@
 	}
 	else if (formatIndex == 11) {
 		// custom alert
-		// %lastname%, %firstname%, %age%, %yearofbirth%		
+		// %lastname%, %firstname%, %age%, %yearofbirth%, %prefix%	
 		NSString *customAlert = customTemplate;
 		
-		if ([birthdayPerson valueForProperty:kABLastNameProperty] != nil)
+		if ([birthdayPerson valueForProperty:kABLastNameProperty] != nil) {
 			customAlert = [customAlert stringByReplacingOccurrencesOfString:@"%lastname%" withString: [birthdayPerson valueForProperty:kABLastNameProperty]];
+		} else {
+			customAlert = [customAlert stringByReplacingOccurrencesOfString:@"%lastname%" withString: @""];
+		}
 		
-		if ([birthdayPerson valueForProperty:kABFirstNameProperty] != nil)
+		if ([birthdayPerson valueForProperty:kABFirstNameProperty] != nil) {
 			customAlert = [customAlert stringByReplacingOccurrencesOfString:@"%firstname%" withString: [birthdayPerson valueForProperty:kABFirstNameProperty]];
+		} else {
+			customAlert = [customAlert stringByReplacingOccurrencesOfString:@"%firstname%" withString: @""];
+		}
+		
+		if ([birthdayPerson valueForProperty:kABTitleProperty] != nil) {
+			customAlert = [customAlert stringByReplacingOccurrencesOfString:@"%prefix%" withString: [birthdayPerson valueForProperty:kABTitleProperty]];
+		} else {
+			customAlert = [customAlert stringByReplacingOccurrencesOfString:@"%prefix%" withString: @""];
+		}
 		
 		customAlert = [customAlert stringByReplacingOccurrencesOfString:@"%yearofbirth%" withString: [yearFormatter stringFromDate:[birthdayPerson valueForProperty:kABBirthdayProperty]]];
 		customAlert = [customAlert stringByReplacingOccurrencesOfString:@"%age%" withString: [NSString stringWithFormat:@"%i", [self nextAge]]];
@@ -160,17 +172,20 @@
 	NSDateComponents *dateComponentsNow = [calendar components:unitFlags fromDate:[NSDate date]];
 	NSDateComponents *dateComponentsBirth = [calendar components:unitFlags fromDate:dateOfBirth];
 	
-	if (([dateComponentsNow month] < [dateComponentsBirth month]) ||
+	/*if (([dateComponentsNow month] < [dateComponentsBirth month]) ||
 		(([dateComponentsNow month] == [dateComponentsBirth month]) && ([dateComponentsNow day] < [dateComponentsBirth day]))) {
 		// hasn't had birthday this year yet
+		NSLog(@"%@ %i - %i - 1 = %i", [self fullName], [dateComponentsNow year], [dateComponentsBirth year], ([dateComponentsNow year] - [dateComponentsBirth year] - 1));
 		return [dateComponentsNow year] - [dateComponentsBirth year] - 1;
-	} else {
+	} else {*/
+		NSLog(@"%@ %i - %i = %i", [self fullName], [dateComponentsNow year], [dateComponentsBirth year], ([dateComponentsNow year] - [dateComponentsBirth year]));
 		return [dateComponentsNow year] - [dateComponentsBirth year];
-	}
+	//}
 }
 
 - (NSInteger) calculateNextAge {
-	return [self calculateCurrentAge] + 1;
+	NSLog(@"%@ %i", [self fullName], ([self currentAge] + 1));
+	return [self currentAge] + 1;
 }
 
 - (NSDate *) nextBirthday {
